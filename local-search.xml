@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>test2</title>
+    <link href="/hiddenblue.github.io/2023/02/01/test2/"/>
+    <url>/hiddenblue.github.io/2023/02/01/test2/</url>
+    
+    <content type="html"><![CDATA[<h1 id="1"><a href="#1" class="headerlink" title="1"></a>1</h1><h2 id="2-da"><a href="#2-da" class="headerlink" title="2 da"></a>2 da</h2><h3 id="3-title3"><a href="#3-title3" class="headerlink" title="3　　title3"></a>3　　title3</h3><p><em>初めまして</em>　　<em><strong>初めまして</strong></em></p><ul><li><p>有序列表1</p></li><li><p>有序列表 2</p></li><li><p>有序列表 3</p></li></ul><ol><li><p>无序列表1</p></li><li><p>无序列表2</p></li><li><p>无序列表3 <a href="https://www.pixiv.net/">pixiv</a></p><blockquote><p>reference1<br>reference2<br>reference3</p></blockquote></li></ol><hr><p><del>这是要被划掉的内容。</del></p><p><u>下划线。</u></p><table><thead><tr><th>1</th><th>2</th></tr></thead><tbody><tr><td><strong>3</strong></td><td><strong>4</strong></td></tr></tbody></table><p>これは　写真です。</p><p><img src="/hiddenblue.github.io/hiddenblue.github/test2/home.png" alt="img"></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>测试用</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>没用的东西</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>test article</title>
     <link href="/hiddenblue.github.io/2023/01/06/test%20article/"/>
     <url>/hiddenblue.github.io/2023/01/06/test%20article/</url>
