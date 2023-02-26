@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>利用HTML往汉字上注音(假名)</title>
+    <link href="/hiddenblue.github.io/posts/6690/"/>
+    <url>/hiddenblue.github.io/posts/6690/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ruby</span>&gt;</span>お<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>休<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span>やす<span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>み<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ruby</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在markdown文件中输入，效果如下：</p><p><ruby>お<rt></rt>休<rt>やす</rt>み<rt></rt></ruby></p><p>注：<ruby></ruby>括住整行的字，<rt></rt>标签添在要注音的字后面即可（为了对齐，不注音的字也打上“rt”空标签）。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>HTML</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>tips</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>第五课 单词</title>
     <link href="/hiddenblue.github.io/posts/44148/"/>
     <url>/hiddenblue.github.io/posts/44148/</url>
