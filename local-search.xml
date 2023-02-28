@@ -4,16 +4,16 @@
   
   
   <entry>
-    <title>利用HTML往汉字上注音(假名)</title>
+    <title>写文章常用标签汇总</title>
     <link href="/hiddenblue.github.io/posts/6690/"/>
     <url>/hiddenblue.github.io/posts/6690/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ruby</span>&gt;</span>お<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>休<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span>やす<span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>み<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ruby</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在markdown文件中输入，效果如下：</p><p><ruby>お<rt></rt>休<rt>やす</rt>み<rt></rt></ruby></p><p>注：<ruby></ruby>括住整行的字，<rt></rt>标签添在要注音的字后面即可（为了对齐，不注音的字也打上“rt”空标签）。</p>]]></content>
+    <content type="html"><![CDATA[<ul><li>利用HTML往汉字上注音(假名)</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ruby</span>&gt;</span>お<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>休<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span>やす<span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>み<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ruby</span>&gt;</span><br></code></pre></td></tr></table></figure><p>效果如下：</p><p><ruby>お<rt></rt>休<rt>やす</rt>み<rt></rt></ruby></p><p>注：<ruby></ruby>括住整行的字，<rt></rt>标签添在要注音的字后面即可（为了对齐，不注音的字也打上“rt”空标签）。</p><ul><li>修改文章字体颜色</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&#x27;red&#x27;</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br></code></pre></td></tr></table></figure><ul><li>大型左括号</li></ul><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">$\left\&#123;\begin&#123;matrix&#125;<br>description1，case1\\<br>description2，case2\\<br>description3，case3<br>\end&#123;matrix&#125;\right.$<br></code></pre></td></tr></table></figure><p>效果如下，右括号同理：</p><p>$\left{\begin{matrix}<br>description1，case1\<br>description2，case2\<br>description3，case3<br>\end{matrix}\right.$</p>]]></content>
     
     
     <categories>
       
-      <category>HTML</category>
+      <category>博客用</category>
       
     </categories>
     
@@ -21,6 +21,10 @@
     <tags>
       
       <tag>tips</tag>
+      
+      <tag>html</tag>
+      
+      <tag>latex</tag>
       
     </tags>
     
