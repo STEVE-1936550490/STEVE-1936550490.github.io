@@ -16,12 +16,12 @@
   <meta name="author" content="Hidden Blue">
   <meta name="keywords" content="">
   
-    <meta name="description" content="いま（今）ーーーーー现在 せんしゅう（先週）ーーーーー上星期 らいしゅう（来週）ーーーーー下星期 さらいしゅう（再来週）ーーーーー下下星期 こんしゅう（今週）ーーーーー这个星期 きのう（昨日）ーーーーー昨天 あした（明日）ーーーーー明天 あさって（明後日）ーーーーー后天 おととい（一昨日）ーーーーー前天 まいにち（毎日）ーーーーー每天 まいあさ（毎朝）ーーーーー每天早上 まいばん（毎晩）ーーーーー">
+    <meta name="description" content="いま（今）ーーーーー现在 せんしゅう（先週）ーーーーー上星期 らいしゅう（来週）ーーーーー下星期 さらいしゅう（再来週）ーーーーー下下星期 こんしゅう（今週）ーーーーー这个星期 きのう（昨日）ーーーーー昨天 あした（明日）ーーーーー明天 あさって（明後日）ーーーーー后天 おととい（一昨日）ーーーーー前天 まいにち（毎日）ーーーーー每天 まいあさ（毎朝）ーーーーー每天早上 まい">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第五课 单词">
 <meta property="og:url" content="https://steve-1936550490.github.io/hiddenblue.github.io/posts/44148/index.html">
 <meta property="og:site_name" content="深藏BLUE的博客">
-<meta property="og:description" content="いま（今）ーーーーー现在 せんしゅう（先週）ーーーーー上星期 らいしゅう（来週）ーーーーー下星期 さらいしゅう（再来週）ーーーーー下下星期 こんしゅう（今週）ーーーーー这个星期 きのう（昨日）ーーーーー昨天 あした（明日）ーーーーー明天 あさって（明後日）ーーーーー后天 おととい（一昨日）ーーーーー前天 まいにち（毎日）ーーーーー每天 まいあさ（毎朝）ーーーーー每天早上 まいばん（毎晩）ーーーーー">
+<meta property="og:description" content="いま（今）ーーーーー现在 せんしゅう（先週）ーーーーー上星期 らいしゅう（来週）ーーーーー下星期 さらいしゅう（再来週）ーーーーー下下星期 こんしゅう（今週）ーーーーー这个星期 きのう（昨日）ーーーーー昨天 あした（明日）ーーーーー明天 あさって（明後日）ーーーーー后天 おととい（一昨日）ーーーーー前天 まいにち（毎日）ーーーーー每天 まいあさ（毎朝）ーーーーー每天早上 まい">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-25T07:50:50.000Z">
 <meta property="article:modified_time" content="2023-02-25T08:17:52.476Z">
@@ -560,6 +560,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -751,6 +757,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/hiddenblue.github.io/js/local-search.js" ></script>
 

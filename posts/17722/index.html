@@ -16,12 +16,12 @@
   <meta name="author" content="Hidden Blue">
   <meta name="keywords" content="">
   
-    <meta name="description" content="へや（部屋）ーーーーー房间、屋子 にわ（庭）ーーーーー院子 いえ（家）ーーーーー家 いま（居間）、リビングーーーーー起居室 れいぞうこ（冷蔵庫）ーーーーー冰箱 かべ（壁）ーーーーー墙壁 スイッチーーーーー开关 ほんだな（本棚）ーーーーー书架 ベッドーーーーー床 ねこ（猫）ーーーーー猫 いぬ（犬）ーーーーー狗 はこ（箱）ーーーーー盒子、箱子 めがね（眼鏡）ーーーーー眼镜 ビデオーーーーー录像机 サッ">
+    <meta name="description" content="へや（部屋）ーーーーー房间、屋子 にわ（庭）ーーーーー院子 いえ（家）ーーーーー家 いま（居間）、リビングーーーーー起居室 れいぞうこ（冷蔵庫）ーーーーー冰箱 かべ（壁）ーーーーー墙壁 スイッチーーーーー开关 ほんだな（本棚）ーーーーー书架 ベッドーーーーー床 ねこ（猫）ーーーーー猫 いぬ（犬）ーーーーー狗 はこ（箱）ーーーーー盒子、箱子 めがね（眼鏡）ーーーーー眼镜 ビ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第四课 单词">
 <meta property="og:url" content="https://steve-1936550490.github.io/hiddenblue.github.io/posts/17722/index.html">
 <meta property="og:site_name" content="深藏BLUE的博客">
-<meta property="og:description" content="へや（部屋）ーーーーー房间、屋子 にわ（庭）ーーーーー院子 いえ（家）ーーーーー家 いま（居間）、リビングーーーーー起居室 れいぞうこ（冷蔵庫）ーーーーー冰箱 かべ（壁）ーーーーー墙壁 スイッチーーーーー开关 ほんだな（本棚）ーーーーー书架 ベッドーーーーー床 ねこ（猫）ーーーーー猫 いぬ（犬）ーーーーー狗 はこ（箱）ーーーーー盒子、箱子 めがね（眼鏡）ーーーーー眼镜 ビデオーーーーー录像机 サッ">
+<meta property="og:description" content="へや（部屋）ーーーーー房间、屋子 にわ（庭）ーーーーー院子 いえ（家）ーーーーー家 いま（居間）、リビングーーーーー起居室 れいぞうこ（冷蔵庫）ーーーーー冰箱 かべ（壁）ーーーーー墙壁 スイッチーーーーー开关 ほんだな（本棚）ーーーーー书架 ベッドーーーーー床 ねこ（猫）ーーーーー猫 いぬ（犬）ーーーーー狗 はこ（箱）ーーーーー盒子、箱子 めがね（眼鏡）ーーーーー眼镜 ビ">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-13T15:12:49.000Z">
 <meta property="article:modified_time" content="2023-02-21T13:42:29.996Z">
@@ -315,7 +315,7 @@
 <p>ビデオーーーーー录像机</p>
 <p>サッカーボールーーーーー足球</p>
 <p>ビールーーーーー啤酒</p>
-<p>ウイスキー      ーーーーー威士忌</p>
+<p>ウイスキー ーーーーー威士忌</p>
 <p>こども（子供）ーーーーー小孩</p>
 <p>きょうだい（兄弟）ーーーーー兄弟姐妹</p>
 <p>りょうしん（両親）ーーーーー父母</p>
@@ -556,6 +556,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -747,6 +753,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/hiddenblue.github.io/js/local-search.js" ></script>
 

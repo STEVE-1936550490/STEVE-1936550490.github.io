@@ -16,12 +16,12 @@
   <meta name="author" content="Hidden Blue">
   <meta name="keywords" content="">
   
-    <meta name="description" content="ほん（本）ーーーーー书 かばんーーーーー包、公文包 ノートーーーーー笔记本 えんぴつ（鉛筆）ーーーーー铅笔 かさ（傘）ーーーーー伞 くつ（靴）ーーーーー鞋子 しんぶん（新聞）ーーーーー报纸 ざっし（雑誌）ーーーーー杂志 じしょ（辞書）ーーーーー词典 カメラーーーーー照相机 テレビーーーーー电视 パソコンーーーーー个人电脑 ラジオーーーーー收音机 でんわ（電話）ーーーーー电话 つくえ（机）ーーーーー">
+    <meta name="description" content="ほん（本）ーーーーー书 かばんーーーーー包、公文包 ノートーーーーー笔记本 えんぴつ（鉛筆）ーーーーー铅笔 かさ（傘）ーーーーー伞 くつ（靴）ーーーーー鞋子 しんぶん（新聞）ーーーーー报纸 ざっし（雑誌）ーーーーー杂志 じしょ（辞書）ーーーーー词典 カメラーーーーー照相机 テレビーーーーー电视 パソコンーーーーー个人电脑 ラジオーーーーー收音机 でんわ（電話）ーーーーー电">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第二课 单词">
 <meta property="og:url" content="https://steve-1936550490.github.io/hiddenblue.github.io/posts/3082/index.html">
 <meta property="og:site_name" content="深藏BLUE的博客">
-<meta property="og:description" content="ほん（本）ーーーーー书 かばんーーーーー包、公文包 ノートーーーーー笔记本 えんぴつ（鉛筆）ーーーーー铅笔 かさ（傘）ーーーーー伞 くつ（靴）ーーーーー鞋子 しんぶん（新聞）ーーーーー报纸 ざっし（雑誌）ーーーーー杂志 じしょ（辞書）ーーーーー词典 カメラーーーーー照相机 テレビーーーーー电视 パソコンーーーーー个人电脑 ラジオーーーーー收音机 でんわ（電話）ーーーーー电话 つくえ（机）ーーーーー">
+<meta property="og:description" content="ほん（本）ーーーーー书 かばんーーーーー包、公文包 ノートーーーーー笔记本 えんぴつ（鉛筆）ーーーーー铅笔 かさ（傘）ーーーーー伞 くつ（靴）ーーーーー鞋子 しんぶん（新聞）ーーーーー报纸 ざっし（雑誌）ーーーーー杂志 じしょ（辞書）ーーーーー词典 カメラーーーーー照相机 テレビーーーーー电视 パソコンーーーーー个人电脑 ラジオーーーーー收音机 でんわ（電話）ーーーーー电">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-04T07:24:39.000Z">
 <meta property="article:modified_time" content="2023-02-21T13:41:49.964Z">
@@ -556,6 +556,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -747,6 +753,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/hiddenblue.github.io/js/local-search.js" ></script>
 

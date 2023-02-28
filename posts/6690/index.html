@@ -24,7 +24,7 @@
 <meta property="og:description" content="记录下用到的、常用的标签。长期更新">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-26T15:24:56.000Z">
-<meta property="article:modified_time" content="2023-02-28T06:52:23.656Z">
+<meta property="article:modified_time" content="2023-02-28T07:02:12.350Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="tips">
 <meta property="article:tag" content="html">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          467 words
+          472 words
         
       </span>
     
@@ -306,7 +306,6 @@
 <li>利用HTML往汉字上注音(假名)</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ruby</span>&gt;</span>お<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>休<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span>やす<span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span>み<span class="hljs-tag">&lt;<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">rt</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ruby</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
 <p>效果如下：</p>
 <p><ruby>お<rt></rt>休<rt>やす</rt>み<rt></rt></ruby></p>
 <p>注：<ruby></ruby>括住整行的字，<rt></rt>标签添在要注音的字后面即可（为了对齐，不注音的字也打上“rt”空标签）。</p>
@@ -314,16 +313,12 @@
 <li>修改文章字体颜色</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">font</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&#x27;red&#x27;</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">font</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
-
 <ul>
 <li>大型左括号</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html">$\left\&#123;\begin&#123;matrix&#125;<br>description1，case1\\<br>description2，case2\\<br>description3，case3<br>\end&#123;matrix&#125;\right.$<br></code></pre></td></tr></table></figure>
-
 <p>效果如下，右括号同理：</p>
-<p>$\left{\begin{matrix}<br>description1，case1\<br>description2，case2\<br>description3，case3<br>\end{matrix}\right.$</p>
+<p><span class="math inline">\(\left\{\begin{matrix} description1，case1\\ description2，case2\\ description3，case3 \end{matrix}\right.\)</span></p>
 
                 
               </div>
@@ -538,6 +533,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -729,6 +730,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/hiddenblue.github.io/js/local-search.js" ></script>
 

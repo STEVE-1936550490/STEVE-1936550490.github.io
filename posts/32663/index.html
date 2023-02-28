@@ -245,7 +245,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          422 words
+          425 words
         
       </span>
     
@@ -299,75 +299,52 @@
             
               <div class="markdown-body">
                 
-                <ol>
+                <ol type="1">
 <li><p>これ、それ、あれは　名です。</p>
 <ul>
-<li><p>这（那）是 ……</p>
-</li>
+<li><p>这（那）是 ......</p></li>
 <li><p>使用情况：</p>
-<ol>
-<li><p>2人面对面时，あれ用于距离说话人都较远的情况。</p>
-</li>
-<li><p>2人面向同一方向时，こ（近距离）そ（中距离）あ（远距离）ど（哪）</p>
-</li>
-</ol>
-</li>
-</ul>
-</li>
-<li><p>だれですか &#x2F;なんですか。</p>
+<ol type="1">
+<li><p>2人面对面时，あれ用于距离说话人都较远的情况。</p></li>
+<li><p>2人面向同一方向时，こ（近距离）そ（中距离）あ（远距离）ど（哪）</p></li>
+</ol></li>
+</ul></li>
+<li><p>だれですか /なんですか。</p>
 <ul>
-<li><p>…那是谁？…那是什么？</p>
-</li>
+<li><p>...那是谁？...那是什么？</p></li>
 <li><p>例句：</p>
 <ul>
-<li><p>それは　何ですか。　　那是什么？</p>
-</li>
-<li><p>あの人は　だれですか。　　那个人是谁？</p>
-</li>
-</ul>
-</li>
-<li><p>注：だれ的礼貌说法为どなた，<mark>”何“用于询问物、“誰”用于询问谁</mark>。</p>
-</li>
-</ul>
-</li>
+<li><p>それは　何ですか。　　那是什么？</p></li>
+<li><p>あの人は　だれですか。　　那个人是谁？</p></li>
+</ul></li>
+<li><p>注：だれ的礼貌说法为どなた，<mark>”何“用于询问物、“誰”用于询问谁</mark>。</p></li>
+</ul></li>
 <li><p>名の名。</p>
 <ul>
 <li><p>例子：</p>
 <ul>
-<li><p>私の鍵　　我的钥匙</p>
-</li>
-<li><p>田中さんの車　　田中先生的车</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>私の鍵　　我的钥匙</p></li>
+<li><p>田中さんの車　　田中先生的车</p></li>
+</ul></li>
+</ul></li>
 <li><p>~の名は　名（の）です。</p>
 <ul>
 <li>このビルは　キムさん（の）です。　　这栋大厦是金先生（的）。</li>
-</ul>
-</li>
+</ul></li>
 <li><p>どれ、どの</p>
 <ul>
-<li><p>问人和问物的区别</p>
-</li>
+<li><p>问人和问物的区别</p></li>
 <li><p>森さんの机は　どれですか。　　森先生的桌子是哪张？</p>
 <p>森さんの机は　どの机ですか。（和上面句子意思一样）</p>
-<p><mark>如果用了の后面的名词一定不能省略！</mark></p>
-</li>
-</ul>
-</li>
+<p><mark>如果用了の后面的名词一定不能省略！</mark></p></li>
+</ul></li>
 </ol>
 <p>注解：</p>
-<ol>
-<li><p>“方（かた）”比“人（ひと）”更有礼貌。</p>
-</li>
-<li><p>问年龄时，“何歳（ですか）”对晚辈用，”<mark>お</mark>いくつ“对长辈用。（お是为了加强礼貌语气）</p>
-</li>
-<li><p>どうぞーーー请的意思。</p>
-</li>
-<li><p>はい、ええ 在口语中类似，はい更正式，如果别人叫你名字就别别用ええ了。</p>
-</li>
+<ol type="1">
+<li><p>“方（かた）”比“人（ひと）”更有礼貌。</p></li>
+<li><p>问年龄时，“何歳（ですか）”对晚辈用，”<mark>お</mark>いくつ“对长辈用。（お是为了加强礼貌语气）</p></li>
+<li><p>どうぞーーー请的意思。</p></li>
+<li><p>はい、ええ 在口语中类似，はい更正式，如果别人叫你名字就别别用ええ了。</p></li>
 </ol>
 
                 
@@ -578,6 +555,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -769,6 +752,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/hiddenblue.github.io/js/local-search.js" ></script>
 
