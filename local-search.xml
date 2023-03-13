@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>消融实验</title>
+    <link href="/hiddenblue.github.io/posts/42561/"/>
+    <url>/hiddenblue.github.io/posts/42561/</url>
+    
+    <content type="html"><![CDATA[<p>看开悟上王者荣耀实验有个方法叫<u><mark>消融实验（Ablation study）</mark></u>，乍看不知道啥意思。原文是这样说的：通过修改各个reward的权重去训练出玩法风格截然不同的agent，比如提高击杀奖励，agent会变得更好战，提高金钱奖励agent会提高刷钱效率。同学们可以通过消融实验的方法，去测试每个reward对agent训练的影响。但是不同reward之间不是相互独立的，同时修改多个reward的效果不能简单的用单个reward的实验结果进行简单的线性叠加。</p><p>简单理解就是，对实验的一个baseline加了两个条件A、B，发现性能好了很多。<mark>但这时候不能确定A和B分别都是有意义的</mark>，这时候引入消融实验：</p><ol type="1"><li><p>baseline+A</p></li><li><p>baseline+B</p></li><li><p>baseline+A+B</p></li></ol><p>如果情况3效果比1、2都好，说明A、B都是有用的；如果发现1和3效果差不多，甚至1更好，那说明B其实并没啥用。</p><p>总的来说，这就是中控制变量的实验方法。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Deep Learning</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>tips</tag>
+      
+      <tag>interpretation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>第六课 单词</title>
     <link href="/hiddenblue.github.io/posts/58867/"/>
     <url>/hiddenblue.github.io/posts/58867/</url>
