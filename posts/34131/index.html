@@ -16,33 +16,25 @@
   <meta name="author" content="Hidden Blue">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一、计算机网络定义、分类、特点 1. 计算机网络定义  将地理上分散的、具有独立工作能力的多台计算机通过通信设备和通信线路连接起来，在配有相应网络通信软件条件下，实现数据通信和资源共享的系统。  2. 网络传输技术分类  广播式网络（共享信道、多点接入） 点对点式网络（P2P）  3. 网络覆盖的范围分类  局域网、城域网、广域网（不严格按规模来分，主要按技术特征）">
+    <meta name="description" content="一、应用层基本介绍 1. 应用程序体系结构分类  客户端、服务器系统（Client&#x2F;Server） 点对点系统（Peer to Peer） 混合系统（Hybrid）  1 ）客户端&#x2F;服务器模型（典型的网络应用）  客户端：发起同服务器的联系 (“speaks first”)。一般都从服务器请求服务。 Web：客户端由浏览器实现；e-mail: 通过OE、Foxmial实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.计算机网络概述">
-<meta property="og:url" content="https://steve-1936550490.github.io/posts/13665/index.html">
+<meta property="og:title" content="2.应用层协议（更新中）">
+<meta property="og:url" content="https://steve-1936550490.github.io/posts/34131/index.html">
 <meta property="og:site_name" content="深藏BLUE的博客">
-<meta property="og:description" content="一、计算机网络定义、分类、特点 1. 计算机网络定义  将地理上分散的、具有独立工作能力的多台计算机通过通信设备和通信线路连接起来，在配有相应网络通信软件条件下，实现数据通信和资源共享的系统。  2. 网络传输技术分类  广播式网络（共享信道、多点接入） 点对点式网络（P2P）  3. 网络覆盖的范围分类  局域网、城域网、广域网（不严格按规模来分，主要按技术特征）">
+<meta property="og:description" content="一、应用层基本介绍 1. 应用程序体系结构分类  客户端、服务器系统（Client&#x2F;Server） 点对点系统（Peer to Peer） 混合系统（Hybrid）  1 ）客户端&#x2F;服务器模型（典型的网络应用）  客户端：发起同服务器的联系 (“speaks first”)。一般都从服务器请求服务。 Web：客户端由浏览器实现；e-mail: 通过OE、Foxmial实现">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/1.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/2.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/3.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/4.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/5.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/6.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/7.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/8.jpg">
-<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/9.jpg">
-<meta property="article:published_time" content="2023-06-05T12:40:31.000Z">
-<meta property="article:modified_time" content="2023-06-20T07:14:21.146Z">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/10.jpg">
+<meta property="article:published_time" content="2023-06-20T07:56:10.000Z">
+<meta property="article:modified_time" content="2023-06-20T12:26:35.522Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/1.jpg">
+<meta name="twitter:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/10.jpg">
   
   
   
-  <title>1.计算机网络概述 - 深藏BLUE的博客</title>
+  <title>2.应用层协议（更新中） - 深藏BLUE的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -234,7 +226,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="1.计算机网络概述"></span>
+            <span id="subtitle" data-typed-text="2.应用层协议（更新中）"></span>
           
         </div>
 
@@ -245,8 +237,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-06-05 20:40" pubdate>
-          June 5, 2023 pm
+        <time datetime="2023-06-20 15:56" pubdate>
+          June 20, 2023 pm
         </time>
       </span>
     
@@ -257,7 +249,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k words
+          1.3k words
         
       </span>
     
@@ -268,7 +260,7 @@
         
         
         
-          11 mins
+          12 mins
         
       </span>
     
@@ -306,106 +298,113 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">1.计算机网络概述</h1>
+            <h1 style="display: none">2.应用层协议（更新中）</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="一计算机网络定义分类特点">一、计算机网络定义、分类、特点</h2>
-<h3 id="计算机网络定义">1. <u>计算机网络定义</u></h3>
+                <h2 id="一应用层基本介绍">一、应用层基本介绍</h2>
+<h3 id="应用程序体系结构分类">1. 应用程序体系结构分类</h3>
 <ul>
-<li>将<u>地理上分散</u>的、具有<u>独立工作能力</u>的多台计算机通过<u>通信设备</u>和<u>通信线路</u>连接起来，在配有相应<u>网络通信软件</u>条件下，实现<u>数据通信</u>和<u>资源共享</u>的系统。</li>
+<li><p>客户端、服务器系统（Client/Server）</p></li>
+<li><p>点对点系统（Peer to Peer）</p></li>
+<li><p>混合系统（Hybrid）</p></li>
 </ul>
-<h3 id="网络传输技术分类">2. <u>网络传输技术分类</u></h3>
+<h4 id="客户端服务器模型典型的网络应用">1 ）<u>客户端/服务器模型</u>（<u>典型的网络应用</u>）</h4>
 <ul>
-<li><p>广播式网络（共享信道、多点接入）</p></li>
-<li><p>点对点式网络（P2P）</p></li>
-</ul>
-<h3 id="网络覆盖的范围分类">3. <u>网络覆盖的范围分类</u></h3>
+<li><p>客户端：发起同服务器的联系 (“speaks first”)。一般都从服务器请求服务。</p>
+<p>Web：客户端由浏览器实现；e-mail: 通过OE、Foxmial实现</p>
 <ul>
-<li>局域网、城域网、广域网（不严格按规模来分，主要按技术特征）</li>
-</ul>
-<h2 id="二计算机网络的结构和组成">二、计算机网络的结构和组成</h2>
-<h3 id="计算机网络的逻辑结构">1. 计算机网络的逻辑结构</h3>
+<li><p>与服务器通信，使用服务器提供的服务</p></li>
+<li><p><u>间歇性接入网络</u></p></li>
+<li><p><u>可能使用动态IP</u>、</p></li>
+<li><p><u>不会与其他客户机直接通信</u></p></li>
+</ul></li>
+<li><p>服务器：向客户端提供所请求的服务</p>
+<p>例：Web 服务器发送被请求的 Web 页面, 邮件服务器传递 e-mail</p>
 <ul>
-<li><p>资源子网：主机系统、终端设备、各种网络软件、数据资源。</p>
-<p>负责数据处理，提供网络资源、网络服务。</p></li>
-<li><p>通信子网：路由器、交换机、通信线路。</p>
-<p>负责数据传输、路由、分组转发等通信处理。</p></li>
+<li><p><u>不间断提供服务</u></p></li>
+<li><p><u>永久性访问地址/域名</u></p></li>
+<li><p><u>利用大量服务器实现可扩展性</u></p></li>
+</ul></li>
 </ul>
-<h3 id="计算机网络的三层组织结构">2. 计算机网络的三层组织结构</h3>
+<p>采用C/S模式的原因：<u>网络资源分布的不均匀性</u></p>
 <ul>
-<li><p>核心层：提供核心三层交换骨干</p></li>
-<li><p>分布层：提供域间路由、地址汇聚</p></li>
-<li><p>访问层：提供物理网接入和隔离</p></li>
+<li><p>网络中计算机系统的类型、硬件结构、功能都存在着很大的差异</p></li>
+<li><p>从软件角度来看，大型应用软件都是安装专用服务器中，合法用户需要通过互联网访问服务器，使用网络资源</p></li>
+<li><p>从信息资源角度来看，数据、文本、图像、音视频资源存放在服务器中，合法用户可以通过互联网访问这些信息资源。这样做对保证信息资源使用的合法性与安全性，以及保证数据的完整性与一致性</p></li>
 </ul>
-<p><img src="/img/ComputerNetwork/1.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="计算机网络的拓扑结构">3. <u>计算机网络的拓扑结构</u></h3>
-<p><img src="/img/ComputerNetwork/2.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="三网络交换技术">三、网络交换技术</h2>
-<h3 id="电话交换-过程">1. 电话交换 过程</h3>
-<ol type="1">
-<li><p>链路建立：发送方提出连接请求，逐个结点完成接续，建立源到目的站的传输链路</p></li>
-<li><p>数据传输特点：全双工（双向可以同时传输）、实时、有序</p></li>
-</ol>
-<h3 id="报文交换过程">2. 报文交换过程</h3>
-<p>结点接受报文后，存储报文，再<u>根据目的地址转发给下一结点</u>，如此反复知道报文到达目标地址。</p>
-<p>特点：无需实现建立专用数据通路。</p>
-<p>缺点：需要对<strong>完整</strong>报文进行存储＆转发，节点处理时延大，实时性差。</p>
-<h3 id="分组交换过程">3. <u>分组交换过程</u></h3>
-<p><u>报文</u>被划分成分组，然后分组独立寻找和转发。和报文交换类似，仍然采取<strong>存储/转发</strong>的交换方式。</p>
+<h4 id="纯p2p模型">2 ）<u>纯P2P模型</u></h4>
+<p><strong>特点：</strong></p>
 <ul>
-<li><p>数据包交换：每个分组以“小报文”的形式，用报文交换方式单独处理。</p></li>
-<li><p>虚电路交换：分组发送前，通信双方先建立<strong>逻辑链路（虚电路）</strong>，然后沿着虚电路传输，结束后拆除。</p></li>
+<li><p>没有永远在线的服务器</p></li>
+<li><p>任意端系统/节点可以通信</p></li>
+<li><p><u>节点间歇性接入网络</u></p></li>
+<li><p><u>节点可能改变IP</u></p></li>
 </ul>
-<p><img src="/img/ComputerNetwork/3.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="三种交换技术对比">4. 三种交换技术对比</h3>
-<p><img src="/img/ComputerNetwork/4.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="四网络体系结构和网络协议">四、网络体系结构和网络协议</h2>
-<h3 id="网络协议">1. 网络协议</h3>
+<p>优缺点：</p>
 <ul>
-<li><p>统一的信息交换规则，规定信息格式，规定如何发送和接受信息</p></li>
-<li><p>三要素：<u>语法、语义、时序</u></p></li>
+<li><p>高度可伸缩</p></li>
+<li><p>难于管理</p></li>
 </ul>
-<h3 id="协议分层思想">2. <u>协议分层思想</u></h3>
+<p>P2P模式特征：</p>
 <ul>
-<li><p>将网络系统<u>按照功能</u>分层，<strong>用协议规定功能</strong></p></li>
-<li><p>对等功能层间用<strong><u>协议</u></strong>进行约束</p></li>
-<li><p>相邻功能层之间采用<strong><u>接口</u></strong>进行交互</p></li>
-</ul>
-<p><img src="/img/ComputerNetwork/5.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="建立网络体系结构的必要性分层的依据原则看看就行">3、4. 建立网络体系结构的必要性、分层的依据原则（看看就行）</h3>
+<li><p>网络结点之间采取<strong>对等方式</strong>，通过直接交换信息共享计算机资源和服务</p></li>
+<li><p>应用于实时通信、协同工作、内容分发、分布式计算等领域</p>
 <ul>
-<li><p><u>解决通信问题</u>：信号、差错、寻址、交换、接口等系列问题。</p></li>
-<li><p><u>简化复杂问题</u>：设计、实现，抽象结构模型。</p></li>
-<li><p><u>层次化模型</u>：化整为零，分而治之、各个击破。</p></li>
-<li><p>明确规定每层实现的功能和服务。</p></li>
-<li><p>每层功能选择有利于标准化。</p></li>
-<li><p>层次划分不依赖于具体系统。</p></li>
-<li><p>高层使用下层提供的服务接口。</p></li>
+<li><p>通信模式：网络中对等结点之间直接通信的能力</p></li>
+<li><p>基本特征：互联网中由对等结点组成的一种动态的逻辑网络</p></li>
+<li><p>实现技术：实现对等结点之间直接通信所需设计的协议、软件等</p></li>
+</ul></li>
+<li><p>P2P网络并不是一个新的网络结构，而是一种<strong>新的网络应用模式</strong></p></li>
 </ul>
-<h3 id="原理性的网络体系结构">5. <u>原理性的网络体系结构</u>：</h3>
-<p><img src="/img/ComputerNetwork/6.jpg" srcset="/img/loading.gif" lazyload /></p>
-<ol type="1">
-<li><p>物理层：规定物理接口，比特流透明传输。</p></li>
-<li><p>数据链路层：实现逻辑链路上无差错的数据帧传输。</p></li>
-<li><p>网络层：实现网络分组传输，<strong>解决寻址、路由、转发。</strong></p></li>
-<li><p>传输层：实现进程间可靠/无差错的端到端通信。</p></li>
-<li><p>应用层：根据应用进程通信要求，满足用户需要。</p></li>
-</ol>
-<h3 id="封装协议数据单元">6. 封装协议数据单元</h3>
-<p><img src="/img/ComputerNetwork/7.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="两大体系结构和相关协议后面会细讲">7. <u>两大体系结构和相关协议</u>（后面会细讲）</h3>
-<p><img src="/img/ComputerNetwork/8.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="tcpip参考模型">8. <u>TCP/IP参考模型</u></h3>
-<p><img src="/img/ComputerNetwork/9.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>特点：</p>
-<ol type="1">
-<li><p>在互联网应用层提供丰富的网络应用服务（C/S、P2P）</p></li>
-<li><p>在传输层支持面向连接/可靠/无差错服务（TCP）和无连接/快速/高效服务（UDP）</p></li>
-<li><p>较少的协议层次，实现简单、高效</p></li>
-<li><p>实现多种异构网的互连问题，网际协议IP为互联网核心</p></li>
-</ol>
+<h4 id="混合模型">3）混合模型</h4>
+<p>同时采用C/S模式和P2P模式，典型例子是Napster</p>
+<ul>
+<li><p><u>文件传输采用P2P</u></p></li>
+<li><p><u>文件搜索采用C/S</u></p>
+<ul>
+<li><p>每个节点向中央服务器登记自己的内容</p></li>
+<li><p>每个节点向中央服务器提交查询请求，查找感兴趣的内容</p></li>
+</ul></li>
+</ul>
+<h3 id="网络应用和应用层协议">2. 网络应用和应用层协议</h3>
+<h4 id="网络应用和应用层协议的基本概念">1）网络应用和应用层协议的基本概念</h4>
+<ul>
+<li><p>网络应用：基于网络的金融应用系统、电子政务、电子商务、远程医疗、远程数据存储等。例如：E-mail、FTP、TELNET、Web、IM、IPTV、VoIP</p></li>
+<li><p>应用层协议：网络应用主要组成部分。<strong><u>规定应用程序进程之间通信所遵循的通信规则，包括：如何构造进程通信报文、报文应包括的字段、每个字段意义、交互过程等</u></strong>。</p></li>
+</ul>
+<h4 id="应用层协议的基本内容">2）应用层协议的基本内容</h4>
+<ul>
+<li><p><strong>交换报文的类型</strong>（如请求报文和应答报文）</p></li>
+<li><p>各种报文格式与包含的字段类型</p></li>
+<li><p>对每个字段意义的描述</p></li>
+<li><p>进程在何时、如何发送报文，以及如何相应</p></li>
+</ul>
+<h4 id="应用层协议的类型">3）应用层协议的类型</h4>
+<ul>
+<li><p><strong><u>标准网络应用：E-mail、FTP、TELNET、Web</u></strong></p></li>
+<li><p>专用应用层协议：许多P2P共享文件的应用层协议就属于专用协议</p></li>
+</ul>
+<h3 id="网络应用对传输层协议的选择">3. <u>网络应用对传输层协议的选择</u></h3>
+<ul>
+<li>根据实际需求，决定选择（传输层）协议：<strong>TCP、UDP</strong></li>
+</ul>
+<p>TCP：功能完善、面向连接、可靠传输服务</p>
+<ul>
+<li><p>支持可靠的面向连接服务</p></li>
+<li><p>支持字节流传输服务</p></li>
+<li><p>支持全双工服务（全双工就比如打电话的时候，双方可以同时说话，<u>信号可以在两个方向上<strong>同时</strong>传输</u>）</p></li>
+<li><p>进程在什么时间、如何发送报文，以及如何响应</p></li>
+</ul>
+<p>UDP：简单、高效</p>
+<ul>
+<li><p>无连接、不可靠的传输（尽力传输）</p></li>
+<li><p>无提供拥塞控制机制</p></li>
+<li><p>不提供最小时延保证</p></li>
+</ul>
+<p>以下是常见网络应用类型对应的应用层和传输层协议：</p>
+<p><img src="/img/ComputerNetwork/10.jpg" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
@@ -453,8 +452,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>1.计算机网络概述</div>
-      <div>https://steve-1936550490.github.io/posts/13665/</div>
+      <div>2.应用层协议（更新中）</div>
+      <div>https://steve-1936550490.github.io/posts/34131/</div>
     </div>
     <div class="license-meta">
       
@@ -466,7 +465,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 5, 2023</div>
+          <div>June 20, 2023</div>
         </div>
       
       
@@ -510,18 +509,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/posts/34131/" title="2.应用层协议（更新中）">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2.应用层协议（更新中）</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/posts/43654/" title="第十课 单词">
-                        <span class="hidden-mobile">第十课 单词</span>
+                      <a href="/posts/13665/" title="1.计算机网络概述">
+                        <span class="hidden-mobile">1.计算机网络概述</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
