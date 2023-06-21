@@ -31,8 +31,9 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/15.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/16.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/17.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/18.jpg">
 <meta property="article:published_time" content="2023-06-20T07:56:10.000Z">
-<meta property="article:modified_time" content="2023-06-21T08:38:18.236Z">
+<meta property="article:modified_time" content="2023-06-21T13:51:50.415Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -256,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.2k words
+          4k words
         
       </span>
     
@@ -267,7 +268,7 @@
         
         
         
-          27 mins
+          34 mins
         
       </span>
     
@@ -512,6 +513,74 @@
 <li>一个请求报文、应答报文交互的例子：</li>
 </ul>
 <p><img src="/img/ComputerNetwork/17.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="三应用层-电子邮件">三、应用层-电子邮件</h2>
+<h3 id="电子邮件的基本概念">1. 电子邮件的基本概念</h3>
+<ul>
+<li><p>邮件发送者把邮件信息发送给接收者，接收者可以是一个或多个</p></li>
+<li><p>可以发送多媒体信息（数据、文件、文字、声音、图像、图形)</p></li>
+<li><p><u>发送者或接收者可以是Internet以外的用户</u></p></li>
+<li><p>电子邮件发送/接收软件可以与用户的其他软件集成</p></li>
+<li><p>具有较强管理和监控功能，以利于系统维护、改善系统运行性能</p></li>
+<li><p>方便用户使用，如支持多种语言文本、邮件优先权等</p></li>
+</ul>
+<h3 id="电子邮件的基本组成">2. 电子邮件的基本组成</h3>
+<ul>
+<li><p><strong><u>四个重要组件：用户代理、邮件服务器、邮件传输协议、邮件存储访问协议</u></strong></p>
+<ul>
+<li><p>用户代理：写作、编辑、阅读邮件；外发邮件；接受的报文存储在邮件服务器中</p></li>
+<li><p>邮件服务器：</p>
+<ul>
+<li><p>邮箱包含了收到的用户邮件（尚未被阅读）</p></li>
+<li><p>报文队列包含了外发的邮件报文</p></li>
+<li><p>客户端：将邮件发送到邮件服务器</p></li>
+<li><p>”服务器“：接受和转发邮件</p></li>
+</ul></li>
+<li><p>邮件传输协议：</p>
+<ul>
+<li><p>客户端到邮件服务器、邮件服务器之间简单邮件传输协议STMP</p></li>
+<li><p>通用Internet邮件扩展协议MIME</p></li>
+</ul></li>
+<li><p>邮件存储访问协议：</p>
+<ul>
+<li><p>邮件服务器到客户端</p></li>
+<li><p>邮政协议第3版POP-3</p></li>
+<li><p>Internet邮件访问协议第4版IMAP-4</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="电子邮件系统结构与工作原理">3. 电子邮件系统结构与工作原理</h3>
+<ul>
+<li><p>电子邮件系统结构</p>
+<ul>
+<li><p>用户接口UA（发送和接收邮件），撰写、显示、处理</p></li>
+<li><p>报文传送代理MTA（邮件发送给接收方，从网络接受邮件）：C/S方式、报告邮件传送情况</p></li>
+</ul></li>
+<li><p>电子邮箱</p>
+<p><strong>要使用电子邮件服务，首先要拥有一个电子邮箱。电子邮箱由提供电子邮件服务的机构（ISP）为用户建立。</strong></p>
+<p><u>csse</u>（用户名）@<u>szu.edu.cn</u>（主机名）</p></li>
+<li><p>邮件报文交付的3个阶段</p>
+<ol type="1">
+<li><p>第一阶段用户借助邮件代理<u>撰写邮件</u>，并<u>借助SMTP协议将邮件发送</u>到邮件服务器</p></li>
+<li><p>第二阶段发送方邮件服务器利用SMTP协议将邮件经过物联网发送到接收方的邮件服务器</p></li>
+<li><p>第三阶段接收方利用POP3协议/IMAP4协议从其邮件服务器中取回邮件到其邮件代理中</p></li>
+</ol>
+<p>图示如下：</p>
+<p><img src="/img/ComputerNetwork/18.jpg" srcset="/img/loading.gif" lazyload /></p></li>
+</ul>
+<h3 id="电子邮件协议邮件传输协议存储访问协议">4. 电子邮件协议：<u>邮件传输协议</u>＆存储访问协议</h3>
+<p>简单邮件传输协议SMTP</p>
+<ul>
+<li><p><u>使用TCP传输邮件报文，端口号25</u></p></li>
+<li><p>直接传输：发送服务器到接收服务器</p></li>
+<li><p>传输三个阶段：握手、报文传输、结束</p></li>
+<li><p>命令/相应交互</p>
+<ul>
+<li><p>命令：ASCII文本</p></li>
+<li><p>相应：状态码和短语</p></li>
+</ul></li>
+<li><p>邮件报文必须用7-bit ASCII表示</p></li>
+<li><p>SMTP命令和应答</p></li>
+</ul>
 
                 
               </div>
