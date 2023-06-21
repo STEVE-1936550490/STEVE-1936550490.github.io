@@ -24,8 +24,14 @@
 <meta property="og:description" content="一、应用层基本介绍 1. 应用程序体系结构分类  客户端、服务器系统（Client&#x2F;Server） 点对点系统（Peer to Peer） 混合系统（Hybrid）  1 ）客户端&#x2F;服务器模型（典型的网络应用）  客户端：发起同服务器的联系 (“speaks first”)。一般都从服务器请求服务。 Web：客户端由浏览器实现；e-mail: 通过OE、Foxmial实现">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/10.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/11.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/12.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/13.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/14.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/15.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/16.jpg">
 <meta property="article:published_time" content="2023-06-20T07:56:10.000Z">
-<meta property="article:modified_time" content="2023-06-20T12:26:35.522Z">
+<meta property="article:modified_time" content="2023-06-21T08:29:27.366Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -249,7 +255,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          2.8k words
         
       </span>
     
@@ -260,7 +266,7 @@
         
         
         
-          12 mins
+          24 mins
         
       </span>
     
@@ -317,7 +323,7 @@
 <ul>
 <li><p>与服务器通信，使用服务器提供的服务</p></li>
 <li><p><u>间歇性接入网络</u></p></li>
-<li><p><u>可能使用动态IP</u>、</p></li>
+<li><p><u>可能使用动态IP</u></p></li>
 <li><p><u>不会与其他客户机直接通信</u></p></li>
 </ul></li>
 <li><p>服务器：向客户端提供所请求的服务</p>
@@ -337,7 +343,7 @@
 <h4 id="纯p2p模型">2 ）<u>纯P2P模型</u></h4>
 <p><strong>特点：</strong></p>
 <ul>
-<li><p>没有永远在线的服务器</p></li>
+<li><p><u>没有永远在线的服务器</u></p></li>
 <li><p>任意端系统/节点可以通信</p></li>
 <li><p><u>节点间歇性接入网络</u></p></li>
 <li><p><u>节点可能改变IP</u></p></li>
@@ -405,6 +411,98 @@
 </ul>
 <p>以下是常见网络应用类型对应的应用层和传输层协议：</p>
 <p><img src="/img/ComputerNetwork/10.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="二web服务与http">二、Web服务与Http</h2>
+<h3 id="web服务的基本概念">1. <u>Web服务的基本概念</u></h3>
+<ul>
+<li><p><strong>超文本传输协议HTTP</strong>：Web服务应用层协议，超文本在浏览器与Web服务器之间的传输协议</p></li>
+<li><p><strong>超文本标记语言HTML</strong>：文档中的特殊数据格式，一个文档可以链接到另一个文档</p></li>
+<li><p><strong>统一资源定位符URL</strong>：标识Web中的资源，以便于用户查找</p></li>
+<li><p><strong>超文本与超媒体</strong>：在Web系统中，信息按超文本方式组织；超媒体进一步扩展了超文本所链接的信息类型</p></li>
+</ul>
+<p>Web的<strong>工作方式：C/S模式</strong></p>
+<ul>
+<li><p>主页：用户访问Web网站看到的第一个页面，通过主页访问网站信息</p>
+<p>主页基本元素</p>
+<ul>
+<li><p><strong>文本（text</strong>）：最基本元素，就是通常所说的文字</p></li>
+<li><p><strong>图像（image）</strong>：Web浏览器通常识别GIF与JPEG图像格式</p></li>
+<li><p><strong>表格（table）</strong>：类似Word表格，表格单元内容通常为字符类型</p></li>
+<li><p><strong>超链接（hyperlink）</strong>：用于链接网页</p></li>
+</ul></li>
+</ul>
+<hr />
+<h3 id="http工作机制">2. HTTP工作机制</h3>
+<ul>
+<li><p><strong>URL与信息资源定位</strong></p>
+<ul>
+<li><p>提供Internet上资源定位、访问方式的一种抽象表示方法</p></li>
+<li><p>由三部分组成：协议类型、主机名、路径及地址</p></li>
+<li><p>通过Web浏览器，<strong>URL不仅能漫游Web网，还能用于FTP、E-mail和TELNET等</strong></p></li>
+<li><p>URL格式：</p>
+<p>访问方式://服务器域名[:端口号]/路径/文件名</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/11.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>URL与信息资源定位</p>
+<ul>
+<li><p>访问Web网站，协议使用http协议，形式为：</p>
+<p>http://服务器名[:端口号]/路径/文件名</p>
+<p>还有其他协议：FTP、SSH、SMTP、IMAP、DNS、RDP、File......</p></li>
+<li><p>URL冒号左边指明了其访问格式</p></li>
+<li><p>http：超文本传输协议</p></li>
+<li><p>ftp：文件传输协议</p></li>
+<li><p>telnet：交互式会话</p></li>
+<li><p>mailto：电子邮件地址</p></li>
+<li><p>HTTP默认端口号是80（可省略）</p></li>
+<li><p>路径/文件名用于直接指向服务器中的某个文件</p></li>
+<li><p>省略路径和文件名，则URL指向了Internet上的某个主页</p></li>
+</ul></li>
+</ul>
+<p>HTTP协议工作步骤：</p>
+<ol type="1">
+<li><p>使用面向连接的TCP协议，客户端Web浏览器向Web服务器请求建立TCP连接（一来一回）</p></li>
+<li><p>TCP连接建立后，浏览器进程发送HTTP请求报文</p></li>
+<li><p>Web服务器发送应答报文</p></li>
+<li><p>可能断开连接，也可能继续维护连接（非持续连接和持续连接）</p></li>
+</ol>
+<p>HTTP特点协议的特点：</p>
+<ul>
+<li><p>TCP提供可靠服务保证客户进程发送的HTTP请求正确到达服务器端。服务器进程发送HTTP应答报文也正确达到客户端</p></li>
+<li><p>Web服务器发送HTTP应答报文时，<strong>不保存</strong>浏览器的任何请求状态信息（<strong>属于无状态协议</strong>）</p></li>
+</ul>
+<p>HTTP协议有两种状态：非持续连接、持续连接</p>
+<ul>
+<li><p>非持续连接（HTTP1.0）</p>
+<ul>
+<li><p>每次请求/响应都要建立一次TCP连接</p></li>
+<li><p>缺点：必须为每个请求对象建立和维护一个新的TCP连接</p></li>
+</ul></li>
+<li><p>持续链接（HTTP1.1）</p>
+<ul>
+<li><p>持续连接时，服务器在发出响应后保持该TCP连接，相同的客户端进程与服务器端之间的后续报文都通过该连接传送</p></li>
+<li><p>对于持续连接，分为<u>流水线模式</u>和<u>非流水线模式</u>，</p>
+<p>非流水线模式中：客户端只有在接收到前一个响应时才能发出新的请求</p>
+<p>流水线模式中：客户端在没有收到前一个响应时就发出新的请求</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/12.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="http请求报文格式">3. <u>HTTP请求报文格式</u></h3>
+<p><img src="/img/ComputerNetwork/13.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>请求行中的方法一般有GET、POST、PUT、HEAD、DELETE等请求</p></li>
+<li><p>请求主体可以没有（例如POST方法时需要请求主体）</p></li>
+<li><p>例子：</p></li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs http"><span class="hljs-keyword">GET</span> <span class="hljs-string">/api/users/123</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>example.com<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>en-US,en;q=0.9<br></code></pre></td></tr></table></figure>
+<h3 id="http应答报文格式">4. HTTP应答报文格式</h3>
+<p><img src="/img/ComputerNetwork/14.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li>常见的状态码：</li>
+</ul>
+<p><img src="/img/ComputerNetwork/15.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="请求报文应答报文的报头结构">5. 请求报文、应答报文的报头结构</h3>
+<p><img src="/img/ComputerNetwork/16.jpg" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>
