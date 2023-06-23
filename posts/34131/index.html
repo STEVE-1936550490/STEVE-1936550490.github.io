@@ -32,8 +32,10 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/16.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/17.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/18.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/19.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/20.jpg">
 <meta property="article:published_time" content="2023-06-20T07:56:10.000Z">
-<meta property="article:modified_time" content="2023-06-21T13:51:50.415Z">
+<meta property="article:modified_time" content="2023-06-23T02:56:44.081Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -257,7 +259,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4k words
+          4.7k words
         
       </span>
     
@@ -268,7 +270,7 @@
         
         
         
-          34 mins
+          40 mins
         
       </span>
     
@@ -567,7 +569,7 @@
 <p>图示如下：</p>
 <p><img src="/img/ComputerNetwork/18.jpg" srcset="/img/loading.gif" lazyload /></p></li>
 </ul>
-<h3 id="电子邮件协议邮件传输协议存储访问协议">4. 电子邮件协议：<u>邮件传输协议</u>＆存储访问协议</h3>
+<h3 id="电子邮件协议邮件传输协议smtpmime存储访问协议pop3imap4">4. 电子邮件协议：<u>邮件传输协议（SMTP+MIME）</u>＆<u>存储访问协议（POP3＆IMAP4）</u></h3>
 <p>简单邮件传输协议SMTP</p>
 <ul>
 <li><p><u>使用TCP传输邮件报文，端口号25</u></p></li>
@@ -580,6 +582,52 @@
 </ul></li>
 <li><p>邮件报文必须用7-bit ASCII表示</p></li>
 <li><p>SMTP命令和应答</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/19.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li>邮箱报文的封装</li>
+</ul>
+<p><img src="/img/ComputerNetwork/20.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p><u>报文格式</u></p>
+<ul>
+<li><p>所有报文都是由ASCII码组成</p></li>
+<li><p>报文由报文行组成，各行之间用回车、换行符分隔</p></li>
+<li><p><strong>报文的长度不能超过998个字符</strong></p></li>
+<li><p><strong>报文行的长度≤78个字符之内</strong></p></li>
+<li><p>报文中可包括多个首部字段和首部内容</p></li>
+<li><p>报文可包括一个主体，主体必须用一个空行与其首部分隔</p></li>
+<li><p>除非需要使用回车与换行符，否则报文中不使用回车与换行符</p></li>
+</ul></li>
+</ul>
+<p>MIME协议的基本内容</p>
+<ul>
+<li><p><strong>允许非7位ASCII码数据通过SMTP传输</strong></p></li>
+<li><p>扩展了原始的SMTP协议，<strong>允许电子邮件能够传输多种类型的数据</strong>，而不仅仅局限于纯文本。</p></li>
+</ul>
+<p>POP3协议（邮件读取协议）</p>
+<ul>
+<li><p>单向协议，只能用于从服务器中下载邮件，发送还是用SMTP</p></li>
+<li><p>分为<strong>删除模式（默认）和保留模式</strong></p>
+<ul>
+<li><p>删除模式是指邮件客户端通过POP3下载邮件后，服务器立即把已下载的邮件删除</p></li>
+<li><p>保留模式指的是邮件客户端下载邮件后，邮件服务器不会立即删除已下载的邮件</p></li>
+</ul></li>
+</ul>
+<p>IMAP4协议：与POP3类似，功能更强。<strong>特别适合需要在多个设备上访问和管理邮件的用户</strong></p>
+<ul>
+<li><p>下载邮件之前检查邮件头部</p></li>
+<li><p>下载邮件之前可用特定字符串搜索电子邮件的内容</p></li>
+<li><p>可以下载部分电子邮件</p></li>
+<li><p>可以在邮件服务器上创建、删除、更名邮箱</p></li>
+<li><p>存放电子邮件可以在文件夹中创建分层次的邮箱</p></li>
+</ul>
+<p><strong>基于Web的电子邮件</strong></p>
+<ul>
+<li><p>20世纪90年代中期，<strong>Hotmail开发了基于Web的电子邮件系统</strong></p></li>
+<li><p>目前几乎所有门户网站都提供该服务，使用Web浏览器收发邮件</p></li>
+<li><p>基于Web电子邮件，<strong><u>用户代理就是Web浏览器，用户与远程邮箱之间的通信使用的是HTTP协议，而不是POP3或IMAP4协议</u></strong></p></li>
+<li><p><strong><u>邮件服务器之间的通信仍然使用SMTP协议</u></strong></p></li>
 </ul>
 
                 
