@@ -30,8 +30,9 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/28.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/29.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/30.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/31.jpg">
 <meta property="article:published_time" content="2023-06-24T06:11:21.000Z">
-<meta property="article:modified_time" content="2023-06-24T13:03:34.236Z">
+<meta property="article:modified_time" content="2023-06-24T15:03:43.999Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -255,7 +256,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k words
+          2.7k words
         
       </span>
     
@@ -266,7 +267,7 @@
         
         
         
-          19 mins
+          23 mins
         
       </span>
     
@@ -434,6 +435,44 @@
 <p>注意，建立连接期间报文长度len一般为0，但SYN报文仍需要消耗一个序列号（+1）；但释放连接过程中len可能不为0，所以计算ACK的公式为：</p>
 <p>ACK = 前一个Seq + 前一个报文段len + 1</p>
 <h3 id="滑动窗口">4. 滑动窗口</h3>
+<h4 id="arqautomatic-repeat-request协议">1 ARQ（Automatic repeat request）协议</h4>
+<ul>
+<li><p>是一种<strong>使用确认、超时机制</strong><u>在不可靠的通信信道上实现可靠数据传输</u>的方法</p>
+<ul>
+<li><p>若发送方在超时之前未能收到对先前发出的数据包P的确认，则发送方重传P，直到收到确认或重传次数超限</p></li>
+<li><p>用于<u>链路层和传输层</u>的数据传输设计</p></li>
+<li><p>TCP采用的是<strong>Go-Back-N ARQ</strong>这种变体</p></li>
+</ul></li>
+</ul>
+<h4 id="tcp滑动窗口">2 TCP滑动窗口</h4>
+<ul>
+<li><p>TCP连接的每一端都必须设有两个窗口</p>
+<ul>
+<li><p>一个发送窗口、一个接收窗口</p></li>
+<li><p>TCP 两端的四个窗口经常处于动态变化之中</p></li>
+<li><p><strong>往返时间 RTT 也是随机的</strong>=&gt;对超时重发提出了挑战</p></li>
+</ul></li>
+<li><p>TCP 的可靠传输机制<strong><u>用字节的序号</u></strong>进行控制</p>
+<ul>
+<li><p>TCP 所有的确认都是<strong>基于序号</strong>而不是基于报文段号</p></li>
+<li><p>为描述方便，我们假设所有确认号正好等于报文段的序号字段的值</p></li>
+</ul></li>
+<li><p><strong>发送缓冲区</strong>是发送窗口的子集：表示已经发送但未经确认的数据包集合。</p>
+<p><strong>接收窗口</strong>类似发送窗口。</p></li>
+</ul>
+<p>关于GBN和SR（Selective Repeat）</p>
+<ul>
+<li>简单来说就是GBN的接收窗口尺寸为1；SR的接收窗口尺寸&gt;1</li>
+</ul>
+<p><img src="/img/ComputerNetwork/31.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>适用范围：</p>
+<ul>
+<li><p>出错率低：比较适合GBN，出错非常罕见，没有必要用复杂的SR，为罕见的事件做日常的准备和复杂处理</p></li>
+<li><p>链路容量大（延迟大、带宽大）：比较适合SR二不是GBN，因为一点出错的代价太大</p></li>
+</ul>
+<h3 id="超时重传">5. 超时重传</h3>
+<h3 id="流量控制">6. 流量控制</h3>
+<h3 id="拥塞控制">7. 拥塞控制</h3>
 
                 
               </div>
