@@ -1,0 +1,878 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/web%20picture.png">
+  <link rel="icon" href="/img/web%20picture.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hidden Blue">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="一、外部视图 1. 传输层的职能  根本目的：在网络层提供的数据通信服务基础上，实现主机的进程间逻辑通信的可靠服务（网络层提供的是主机间的逻辑通信） 三大要点：  为位于两个主机内部的两个应用进程之间提供通信服务 传输层协议软件属于OS内核软件而非用户软件 提供可靠的通信服务 注：可靠的意义在不同协议之间不完全相同，UDP的可靠性就弱于TCP  主要协议：TCP和UDP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.传输层协议">
+<meta property="og:url" content="https://steve-1936550490.github.io/posts/40612/index.html">
+<meta property="og:site_name" content="深藏BLUE的博客">
+<meta property="og:description" content="一、外部视图 1. 传输层的职能  根本目的：在网络层提供的数据通信服务基础上，实现主机的进程间逻辑通信的可靠服务（网络层提供的是主机间的逻辑通信） 三大要点：  为位于两个主机内部的两个应用进程之间提供通信服务 传输层协议软件属于OS内核软件而非用户软件 提供可靠的通信服务 注：可靠的意义在不同协议之间不完全相同，UDP的可靠性就弱于TCP  主要协议：TCP和UDP">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/24.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/25.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/26.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/27.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/28.jpg">
+<meta property="article:published_time" content="2023-06-24T06:11:21.000Z">
+<meta property="article:modified_time" content="2023-06-24T07:13:50.396Z">
+<meta property="article:author" content="Hidden Blue">
+<meta property="article:tag" content="期末">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/24.jpg">
+  
+  
+  
+  <title>3.传输层协议 - 深藏BLUE的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"steve-1936550490.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"><!--APlayer的样式-->
+      <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script><!--APlayer的依赖-->
+  
+      <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><!--Meting的依赖-->
+      <meting-js
+      server="netease"
+      type="playlist"
+      autoplay=false 
+      fixed=true 
+      lrc-type=0
+      id="8168139032"> 
+    </meting-js> 
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>深藏BLUE的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-note"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-th-large"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About me</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-friends"></i>
+                <span>Links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="3.传输层协议"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-24 14:11" pubdate>
+          June 24, 2023 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">3.传输层协议</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="一外部视图">一、外部视图</h2>
+<h3 id="传输层的职能">1. 传输层的职能</h3>
+<ul>
+<li><p><u>根本目的</u>：在网络层提供的数据通信服务基础上，实现主机的<strong><u>进程间逻辑通信</u></strong>的可靠服务（<u>网络层提供的是主机间的逻辑通信</u>）</p></li>
+<li><p>三大要点：</p>
+<ul>
+<li><p>为位于两个主机内部的<strong>两个应用进程之间</strong>提供通信服务</p></li>
+<li><p>传输层协议软件<strong>属于OS内核软件</strong>而非用户软件</p></li>
+<li><p>提供<strong>可靠</strong>的通信服务</p>
+<p>注：可靠的意义在不同协议之间不完全相同，UDP的可靠性就弱于TCP</p></li>
+</ul></li>
+<li><p><strong><u>主要协议：TCP和UDP</u></strong></p></li>
+</ul>
+<h3 id="传输层的应用编程接口socket">2. 传输层的应用编程接口（Socket）</h3>
+<p><img src="/img/ComputerNetwork/24.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>本质上Socket就是应用层和传输层的桥梁，通过Socket API，应用程序（进程）就可以使用传输层协议进行网络间的通信。</p>
+<h3 id="端口标识应用进程">3. 端口：标识应用进程</h3>
+<ul>
+<li><p>为了使不同操作系统中的应用进程能够互相通信，就必须用统一的方法对 TCP/IP 体系的应用进程进行标识。<u>标识的手段就是端口号</u>。</p></li>
+<li><p>端口号的分类：</p>
+<ol type="1">
+<li><p>熟知端口（Well-known Ports）：范围从0到1023。这些端口号通常被一些广泛使用的标准服务和应用程序所占用，<strong>如HTTP（端口号80）、FTP（端口号21）、SSH（端口号22）、SMTP（端口号25）等</strong>。熟知端口是由IANA分配和管理的。</p></li>
+<li><p>注册端口（Registered Ports）：范围从1024到49151。这些端口号用于用户或应用程序自定义的服务和应用程序。它们在需要使用特定端口的应用程序之间进行协商，并在IANA的注册中心进行登记。常见的一些应用程序和服务可能使用注册端口，但不是强制性的。</p></li>
+<li><p>动态或私有端口（Dynamic or Private Ports）：范围从49152到65535。这些端口号用于临时分配给客户端应用程序，用于与服务器进行通信。通常，客户端应用程序会随机选择一个可用的动态端口进行通信。</p></li>
+</ol></li>
+<li><p>传输层通信连接的标识方法</p>
+<ul>
+<li>由以下<strong>五元组</strong>标识：协议、<u>本地地址、本地端口</u>、<u>远程地址、远程端口</u></li>
+</ul></li>
+<li><p>传输层的多路复用和多路分解</p>
+<ul>
+<li>运行TCP/IP协议主机中，<u>可以同时运行不同应用层协议和不同的应用程序</u></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/25.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="二udp协议">二、UDP协议</h2>
+<h3 id="udp协议主要特点">1. UDP协议主要特点</h3>
+<ul>
+<li><p>只在IP的数据报服务上增加了很少的一点功能</p>
+<ul>
+<li><p>（多路）复用和分用</p></li>
+<li><p>差错检测（一般通过checksum函数）</p></li>
+</ul></li>
+<li><p>无连接</p></li>
+<li><p>面向报文：UDP 对应用层传递下来的报文，既不合并，也不拆分，而是<u>保留这些报文的边界。UDP 层一次向对方交付一个完整的报文。</u></p></li>
+<li><p>没有拥塞控制</p></li>
+<li><p>支持多对多的交互通信</p></li>
+<li><p>首部开销小：只有 8 个字节，比 TCP 的 20 个字节的首部要短</p></li>
+</ul>
+<h3 id="udp的适用场景">2. UDP的适用场景</h3>
+<ul>
+<li><p>对性能的要求高于对数据完整性的要求（视频播放、P2P、DNS等）</p></li>
+<li><p>需要“简短快捷”的数据交换（简单的请求与应答报文交互，如在线游戏）</p></li>
+<li><p>需要多播和广播的应用（本地广播、隧道VPN）</p></li>
+</ul>
+<h3 id="udp的数据报格式">3. UDP的数据报格式</h3>
+<p><img src="/img/ComputerNetwork/26.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ol type="1">
+<li><p>UDP总长度(<u>单位为bytes</u>) = 8 (UDP报头长度) + 数据字段的字节长度 (<strong>长度必须为2字节的倍数</strong>，即为偶数)</p></li>
+<li>数据字段的字节长度必须为2字节的倍数原因是：校验和的计算是以2字节为单位的（校验和是16个bits的）</li>
+</ol>
+<ul>
+<li><p>校验和的计算，以两个16bits整数相加为例：</p>
+<p><img src="/img/ComputerNetwork/27.jpg" srcset="/img/loading.gif" lazyload /></p></li>
+</ul>
+<p><strong>一定要记得把超过16位后的数字回卷再加到结果上</strong></p>
+<p>当 校验范围的和 + 校验和 = 1111111111111111 通过校验</p>
+<h2 id="三tcp协议">三、TCP协议</h2>
+<h3 id="tcp的主要特点">1. TCP的主要特点</h3>
+<ul>
+<li><p>面向连接的传输服务（打电话式、会话式通信）</p></li>
+<li><p>字节流传输服务（字节<u>按序</u>传输）</p></li>
+<li><p>全双工通信</p></li>
+<li><p>可以建立多个并发的TCP连接</p></li>
+<li><p>可靠传输服务</p>
+<ul>
+<li>不丢失数据、保持数据有序、向上层<strong>不重复提交</strong>数据（通过确认机制、拥塞控制等方式实现）</li>
+</ul></li>
+</ul>
+<h3 id="tcp传输的数据单元">2. TCP传输的数据单元</h3>
+<ul>
+<li><p>TCP是以<strong><u>报文段（Segment）</u></strong>作为传输单元</p></li>
+<li><p>报文结构</p>
+<img src="/img/ComputerNetwork/28.jpg" srcset="/img/loading.gif" lazyload /></li>
+</ul>
+<ol type="1">
+<li><p>源端口号（Source Port）：16位字段，表示发送方应用程序的端口号。</p></li>
+<li><p>目标端口号（Destination Port）：16位字段，表示接收方应用程序的端口号。</p></li>
+<li><p>序列号（<strong>Sequence Number</strong>）：32位字段，用于对报文段进行排序和重组。每个TCP报文段都带有一个序列号，用于指示报文段中第一个数据字节的序列号。</p></li>
+<li><p>确认号（<strong>Acknowledgment Number</strong>）：32位字段，用于确认已成功接收到的数据。指示期望接收的下一个字节的序列号。</p></li>
+<li><p>数据偏移（Data Offset）：4位字段，表示报文段头部的长度，以4字节为单位。TCP报文段头部中有一些控制字段和选项，数据偏移字段用于指示报文段头部的长度。</p></li>
+<li><p>控制标志位（Control Flags）：TCP报文段头部中有多个控制标志位，用于控制TCP连接的建立、维护和关闭等操作。常见的控制标志位包括SYN（建立连接）、ACK（确认）、FIN（关闭连接）等。</p></li>
+<li><p>窗口大小（Window Size）：16位字段，用于流量控制。表示发送方希望接收方分配的接收缓冲区大小。</p></li>
+<li><p>校验和（Checksum）：16位字段，用于检测报文段是否在传输过程中发生了错误。</p></li>
+<li><p>紧急指针（Urgent Pointer）：16位字段，用于指示报文段中紧急数据的边界。</p></li>
+<li><p>选项（Options）：可选字段，用于传输一些额外的信息或协商特定的功能和参数。</p></li>
+</ol>
+<h3 id="tcp的通信过程">3. <u>TCP的通信过程</u></h3>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Network/" class="category-chain-item">Computer Network</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%9C%9F%E6%9C%AB/">#期末</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95/">#面试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>3.传输层协议</div>
+      <div>https://steve-1936550490.github.io/posts/40612/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Hidden Blue</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 24, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - Non-commercial">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - Share-alike">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/posts/34131/" title="2.应用层协议">
+                        <span class="hidden-mobile">2.应用层协议</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"STEVE-1936550490/hiddenblue.github.io","repo-id":"R_kgDOIupUMQ","category":"Comments","category-id":"DIC_kwDOIupUMc4CULGC","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
