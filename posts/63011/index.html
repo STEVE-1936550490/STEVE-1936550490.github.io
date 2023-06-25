@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/48.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/49.jpg">
 <meta property="article:published_time" content="2023-06-25T06:34:11.000Z">
-<meta property="article:modified_time" content="2023-06-25T15:24:28.018Z">
+<meta property="article:modified_time" content="2023-06-25T15:37:54.109Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -261,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k words
+          6.4k words
         
       </span>
     
@@ -272,7 +272,7 @@
         
         
         
-          53 mins
+          54 mins
         
       </span>
     
@@ -594,7 +594,7 @@
 <h2 id="四nat">四、NAT</h2>
 <h3 id="natnetwork-address-translation-的基本概念">1. NAT(Network Address Translation) 的基本概念</h3>
 <ul>
-<li><p>解决IP地址短缺，有效快速补救办法</p></li>
+<li><p>解决IP地址短缺，有效快速补救办法（将私有IP转为共有IP）</p></li>
 <li><p>四类应用领域：</p>
 <ul>
 <li><p>ISP、ADSL、有线电视地址分配</p></li>
@@ -609,6 +609,33 @@
 <li><p>一对一（静态NAT）</p></li>
 <li><p>多对多（动态NAT）</p></li>
 </ul>
+<p>要记下A、B、C类的<strong>私有IP范围</strong>：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">类别</th>
+<th style="text-align: center;">网络号</th>
+<th style="text-align: center;">总数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">172.16-172.31</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">192.168.0-192.168.255</td>
+<td style="text-align: center;">256</td>
+</tr>
+</tbody>
+</table>
 <h3 id="nat的评价">3. NAT的评价</h3>
 <ul>
 <li><p>违反IP地址结构模型设计原则（地址结构基础是每个IP均标识一个网络接入）</p>
