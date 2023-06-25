@@ -27,8 +27,9 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/38.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/39.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/40.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/41.jpg">
 <meta property="article:published_time" content="2023-06-25T06:34:11.000Z">
-<meta property="article:modified_time" content="2023-06-25T08:30:15.010Z">
+<meta property="article:modified_time" content="2023-06-25T11:36:07.528Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -252,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k words
+          3.5k words
         
       </span>
     
@@ -263,7 +264,7 @@
         
         
         
-          21 mins
+          29 mins
         
       </span>
     
@@ -540,6 +541,49 @@
 <li><p>虽然根据已成为互联网标准协议的 RFC 950 文档，<strong>子网号不能为全 1 或全 0</strong></p></li>
 <li><p>但随着无分类域间路由选择 CIDR 的广泛使用，现在全 1 和全 0 的子网号也可以使用了，但一定要谨慎使用，确认你的路由器所用的路由选择软件是否支持全 0 或全 1 的子网号这种较新的用法</p></li>
 </ul>
+<h2 id="三cidr">三、CIDR</h2>
+<h3 id="类别域间路由cidrclassless-inter-domain-routing">1. 类别域间路由CIDR（Classless Inter-Domain Routing）</h3>
+<ul>
+<li><p>CIDR 消除了传统的 A 类、B 类和 C 类地址以及划分子网的概念，因而可以更加有效地分配 IPv4 的地址空间</p></li>
+<li><p>CIDR使用各种长度的“网络前缀”(network-prefix)来代替分类地址中的网络号和子网号</p></li>
+<li><p>IP 地址从三级编址（使用子网掩码）<strong>又回到了两级编址</strong></p></li>
+</ul>
+<p>CIDR 使用“斜线记法”(slash notation)，它又称为 CIDR 记法，即在 IP 地址面加上一个斜线“/”，<u>然后写上网络前缀所占的位数</u></p>
+<h3 id="cidr地址块">2. CIDR地址块</h3>
+<ul>
+<li><p>CIDR把网络<strong>前缀都相同</strong>的连续的IP地址组成“CIDR地址块”。比如：128.14.32.0/20（128.14.0010 0000.0000 0000）表示的地址块有2<sup>12</sup>个地址。</p>
+<p>该地址块的起始地址为128.14.32.0。</p></li>
+<li><p>在不需要指出地址块的起始地址时，也可将这样的地址块简称为“/20 地址块”</p></li>
+<li><p>全 0 和全 1 的主机号地址一般不使用</p></li>
+</ul>
+<h3 id="路由聚合">3. 路由聚合</h3>
+<ul>
+<li><p>一个 CIDR 地址块可以表示很多地址，<strong>这种地址的聚合常称为路由聚合</strong>，它使得路由表中的一个项目可以表示很多个（例如上千个）原来传统分类地址的路由</p></li>
+<li><p>路由聚合<strong>有利于减少路由器之间的路由选择信息的交换</strong>，从而提高了整个互联网的性能</p></li>
+<li><p>路由聚合也称为构成超网 (supernetting)</p></li>
+<li><p>CIDR虽然不使用子网了，但仍然使用“掩码“一词（但不叫子网掩码）</p></li>
+<li><p>对于 /20  地址块，它的掩码是 20 个连续的 1。斜线记法中的数字就是掩码中1的个数</p></li>
+</ul>
+<h3 id="路由聚合示例">4. 路由聚合示例</h3>
+<p><img src="/img/ComputerNetwork/41.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>这样进行路由聚合后，互联网中的路由器到主路由器<strong>只需1个表项</strong>，即200.24.16.0/20</p>
+<h3 id="最长前缀匹配">5. 最长前缀匹配</h3>
+<ul>
+<li><p>使用 CIDR 时，路由表中的<strong>每个项目由“网络前缀”和“下一跳地址”组成</strong>。在查找路由表时可能会得到不止一个匹配结果</p></li>
+<li><p>应当从匹配结果中选择具有最长网络前缀的路由：最长前缀匹配 (longest-prefix matching)</p></li>
+<li><p>网络前缀越长，其地址块就越小，因而路由就越具体 (more specific)</p></li>
+<li><p>最长前缀匹配又称为最长匹配或最佳匹配</p></li>
+</ul>
+<p>例子：</p>
+<ul>
+<li><p>某路由器R收到目地址为D=202.0.71.132=202.0.0100 0111.132的IP数据报，R路由表中有两个表项D匹配：</p>
+<ul>
+<li><p>R1：202.0.68.0/22    =202.0.0100 01_ <em>. </em> _ _ _ _ _ _ _</p></li>
+<li><p>R2: 202.0.71.128/25=202.0.01000111.1 _ _ _ _ _ _ _</p></li>
+</ul>
+<p>按照最长前缀匹配原则，应选择R2表项转发该IP数据报</p></li>
+</ul>
+<h2 id="四nat">四、NAT</h2>
 
                 
               </div>
