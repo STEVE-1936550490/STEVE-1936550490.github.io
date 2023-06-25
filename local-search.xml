@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>4.网络层协议</title>
+    <link href="/posts/63011/"/>
+    <url>/posts/63011/</url>
+    
+    <content type="html"><![CDATA[<h2 id="一网络层简介和ipv4地址">一、网络层简介和IPv4地址</h2><h3 id="网络协议中ip所在层次">1. 网络协议中IP所在层次</h3><ul><li><p>网际协议 IP 是 TCP/IP 体系中两个最主要的协议之一。与 IP 协议配套使用的还有三个协议：</p><ul><li><p>地址解析协议 ARP(Address Resolution Protocol)</p></li><li><p>网际控制报文协议 ICMP (Internet Control Message Protocol)</p></li><li><p>网际组管理协议 IGMP (Internet Group Management Protocol)</p></li></ul><p>ARP是将网络层的IP地址解析为链路层的MAC地址。</p><p>ICMP用于控制消息和错误报告，用于网络故障排除和监测。</p><p>IGMP用于多播通信中的组管理，用于加入和离开多播组。</p></li></ul><h3 id="ipv4协议的主要特点">2. IPv4协议的主要特点</h3><ul><li><p><u>无连接、不可靠的分组传送服务协议</u>（尽力而为）</p><ul><li><p>不维护分组发送后任何状态信息</p></li><li><p>不保证可靠性（完整和按序）</p></li></ul></li><li><p><strong>点-点的网络层通信协议</strong></p><ul><li>两个主机间通信有多条路径</li></ul></li><li><p>为传输层屏蔽了物理网络的差异</p><ul><li><p>掩盖了各种不同物理网和协议差异性（实现异构互联）</p></li><li><p>为上面的传输层提供了统一的接口</p></li></ul></li></ul><p>IP分组统一不同类型的（链路层）帧</p><p><img src="/img/ComputerNetwork/37.jpg" /></p><h3 id="ipv4地址的发展历程">3. IPv4地址的发展历程</h3><p><img src="/img/ComputerNetwork/38.jpg" /></p><ol type="1"><li><p>IP 地址由互联网名字和数字分配机构ICANN (Internet Corporation for Assigned Names and Numbers)进行分配。</p></li><li><p>标准分类的 IP 地址：最基本的编址方法，在 1981 年就通过了相应的标准协议。</p></li><li><p>划分子网：对最基本的编址方法的改进，其标准 [RFC 950] 在 1985 年通过。</p></li><li><p>构成超网：比较新的无分类编址方法。 1993 年提出后很快就得到推广应用。</p></li></ol><h3 id="ipv4地址模型网络号主机号">4. <u>IPv4地址模型：网络号＆主机号</u></h3><ul><li><p>对于C类地址，高三位是网络号、最后一位是主机号。例如：</p><p>IPv4地址为：192.22.12.3 网络号为：192.22.12 主机号为：3</p></li><li><p>网络号标志了主机（或路由器）所连接到的网络</p></li><li><p>主机号标志了该主机（或路由器）</p></li><li><p>不同类地址的网络号和主机号所占的字节数不同！</p></li></ul><h3 id="标准分类的ipv4地址">5. 标准分类的IPv4地址</h3><ul><li>长度为32位</li></ul><p><img src="/img/ComputerNetwork/39.jpg" /></p><table><thead><tr class="header"><th style="text-align: center;">网络类别</th><th style="text-align: center;">网络标识</th><th style="text-align: center;">二/十进制</th><th style="text-align: center;">网络地址长度</th><th style="text-align: center;">主机地址长度</th><th style="text-align: center;">最大网络数</th><th style="text-align: center;">最大主机数</th><th style="text-align: center;">适用范围</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">A</td><td style="text-align: center;">0</td><td style="text-align: center;">0xxxxxxx/1-126</td><td style="text-align: center;">1字节</td><td style="text-align: center;">3字节</td><td style="text-align: center;">126</td><td style="text-align: center;">16777214</td><td style="text-align: center;">大型网络</td></tr><tr class="even"><td style="text-align: center;">B</td><td style="text-align: center;">10</td><td style="text-align: center;">10xxxxxx/128-191</td><td style="text-align: center;">2字节</td><td style="text-align: center;">2字节</td><td style="text-align: center;">16383</td><td style="text-align: center;">65534</td><td style="text-align: center;">中型网络</td></tr><tr class="odd"><td style="text-align: center;">C</td><td style="text-align: center;">110</td><td style="text-align: center;">110xxxxx/192-223</td><td style="text-align: center;">3字节</td><td style="text-align: center;">1字节</td><td style="text-align: center;">2097151</td><td style="text-align: center;">254</td><td style="text-align: center;">小型网络</td></tr><tr class="even"><td style="text-align: center;">D</td><td style="text-align: center;">1110</td><td style="text-align: center;">1110xxxx/224-239</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;">多播传送</td></tr><tr class="odd"><td style="text-align: center;">E</td><td style="text-align: center;">1110</td><td style="text-align: center;">11110xxx/240-247</td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;"></td><td style="text-align: center;">保留</td></tr></tbody></table><h3 id="特殊的ip地址">6. 特殊的IP地址</h3><table><thead><tr class="header"><th style="text-align: center;">网络号</th><th style="text-align: center;">主机号</th><th style="text-align: center;">源地址使用</th><th style="text-align: center;">目的地址使用</th><th style="text-align: center;">含义</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">0</td><td style="text-align: center;">0</td><td style="text-align: center;">√</td><td style="text-align: center;">×</td><td style="text-align: center;">在本网络上的本主机（见DHCP协议）</td></tr><tr class="even"><td style="text-align: center;">0</td><td style="text-align: center;">host-id</td><td style="text-align: center;">√</td><td style="text-align: center;">×</td><td style="text-align: center;">在本网络上某台主机的host-id</td></tr><tr class="odd"><td style="text-align: center;">全1</td><td style="text-align: center;">全1</td><td style="text-align: center;">×</td><td style="text-align: center;">√</td><td style="text-align: center;">只在本网络上进行广播（各路由器均不转发）</td></tr><tr class="even"><td style="text-align: center;">net-id</td><td style="text-align: center;">全1</td><td style="text-align: center;">×</td><td style="text-align: center;">√</td><td style="text-align: center;">对net-id上所有主机进行广播</td></tr><tr class="odd"><td style="text-align: center;">127</td><td style="text-align: center;">非全0也非全1的任何数</td><td style="text-align: center;">√</td><td style="text-align: center;">√</td><td style="text-align: center;">用作测试本地软件换回测试之用</td></tr></tbody></table><h3 id="ip地址特点小结">7. IP地址特点小结</h3><ul><li><p>IP地址是一种分等级的地址结构，分两个等级的好处是：</p><ul><li><p>IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由<strong>得到该网络号</strong>的单位自行分配。这样就方便了 IP 地址的管理</p></li><li><p>路由器仅根据目的主机所连接的<strong>网络号</strong>来转发分组（而不考虑目的主机号），这样就可以<u>使路由表中的项目数大幅度减少</u>，从而减小了路由表所占的存储空间</p></li></ul></li><li><p>实际上 IP 地址是标志一个主机（或路由器）和一条链路的接口</p><ul><li><p>当一个主机<strong>同时连接到两个网络上时</strong>，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为<u>多归属主机 (multihomed host)</u></p></li><li><p>由于一个路由器至少应当连接到两个网络（这样它才能将 IP 数据报从一个网络转发到另一个网络），因此<strong>一个路由器至少应当有两个不同的 IP 地址</strong></p></li></ul></li><li><p>用<strong>转发器或网桥连接起来的若干个局域网仍为一个网络</strong>，因此这些局域网都具有同样的网络号 net-id</p></li><li><p>所有<u>分配到网络号 net-id 的网络</u>，无论是范围很小的局域网，还是覆盖很大地理范围的广域网，<u>都是平等的</u></p></li></ul><h3 id="ip地址硬件地址">8. IP地址＆硬件地址</h3><ul><li><p>硬件地址（或物理地址）是数据链路层和物理层使用的地址</p></li><li><p>IP 地址是<strong>网络层和以上各层使用的地址</strong>，是一种<u>逻辑地址</u>（称 IP 地址是逻辑地址是因为 IP 地址是用软件实现的）</p></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Network</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>期末</tag>
+      
+      <tag>面试</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>3.传输层协议</title>
     <link href="/posts/40612/"/>
     <url>/posts/40612/</url>
