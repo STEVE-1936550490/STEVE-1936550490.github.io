@@ -28,8 +28,16 @@
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/39.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/40.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/41.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/42.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/43.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/44.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/45.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/46.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/47.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/48.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/49.jpg">
 <meta property="article:published_time" content="2023-06-25T06:34:11.000Z">
-<meta property="article:modified_time" content="2023-06-25T11:36:07.528Z">
+<meta property="article:modified_time" content="2023-06-25T15:24:28.018Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -253,7 +261,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k words
+          6.3k words
         
       </span>
     
@@ -264,7 +272,7 @@
         
         
         
-          29 mins
+          53 mins
         
       </span>
     
@@ -584,6 +592,203 @@
 <p>按照最长前缀匹配原则，应选择R2表项转发该IP数据报</p></li>
 </ul>
 <h2 id="四nat">四、NAT</h2>
+<h3 id="natnetwork-address-translation-的基本概念">1. NAT(Network Address Translation) 的基本概念</h3>
+<ul>
+<li><p>解决IP地址短缺，有效快速补救办法</p></li>
+<li><p>四类应用领域：</p>
+<ul>
+<li><p>ISP、ADSL、有线电视地址分配</p></li>
+<li><p>移动无线接入地址分配</p></li>
+<li><p>需要严格控制访问的内部网络</p></li>
+<li><p>与防护墙结合的应用</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/42.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="nat的工作原理">2. NAT的工作原理</h3>
+<ul>
+<li><p>一对一（静态NAT）</p></li>
+<li><p>多对多（动态NAT）</p></li>
+</ul>
+<h3 id="nat的评价">3. NAT的评价</h3>
+<ul>
+<li><p>违反IP地址结构模型设计原则（地址结构基础是每个IP均标识一个网络接入）</p>
+<ul>
+<li>NAT需要额外增加一个端口信息，并通过NAT转换表完成标识一个网络接入</li>
+</ul></li>
+<li><p>由无连接变成有连接（维持专用/公用IP、端口号映射关系，互联网变脆弱）</p></li>
+<li><p>破坏TCP/IP分层结构原则（修改分组头）</p></li>
+<li><p>给P2P应用实现带来困难（破坏文件/语音共享机制）</p></li>
+<li><p>高层协议安全性有影响</p></li>
+</ul>
+<h2 id="五路由">五、路由</h2>
+<h3 id="路由选择算法">路由选择算法</h3>
+<p>路由是指在计算机网络中确定数据包传输路径的过程。</p>
+<ul>
+<li><p>路由选择的主要参数</p>
+<ol type="1">
+<li><p>跳数（hop count），跳数越少，路径越好</p></li>
+<li><p>带宽（bandwidth），链路传输速率</p></li>
+<li><p>延时（delay），从源结点到达目的节点的时间开销</p></li>
+<li><p>负载（load），路由器单位时间通信量</p></li>
+<li><p>可靠性（reliability），传输过程的误码率</p></li>
+<li><p>开销（overhead），传输过程的耗费</p></li>
+</ol></li>
+<li><p>路由选择算法的分类</p>
+<ul>
+<li><p>采用表驱动的路由选择算法</p></li>
+<li><p>查表决定”下一跳路由“</p></li>
+<li><p>路由算法分类：</p>
+<ol type="1">
+<li><p>静态路由选择（非自适应）</p></li>
+<li><p>动态路由选择（自适应，自动更新路由表）</p></li>
+</ol></li>
+</ul></li>
+</ul>
+<h3 id="路由表">路由表</h3>
+<ul>
+<li><p>路由表：由路由选择算法创建、维护</p></li>
+<li><p>标准路由选择算法</p></li>
+<li><p>路由表二元组（N，R）</p></li>
+<li><p>N：目标网络地址，R：网络N的下一跳路由器地址</p></li>
+<li><p><strong>子网路由</strong>的三元组（M，N，R），其中M表示目标网络的子网掩码</p></li>
+</ul>
+<h3 id="ip路由汇聚">IP路由汇聚</h3>
+<ul>
+<li><p>减少路由表项数量的重要手段</p></li>
+<li><p>基于CIDR，网络前缀越长，主机地址数越少，寻址目的主机越容易</p></li>
+<li><p><strong>路由表项由（“网络前缀”、“下一跳地址”）组成</strong></p></li>
+<li><p>最短前缀匹配：路由选择具有最长网络前缀的路由</p></li>
+</ul>
+<h3 id="路由信息协议rip">路由信息协议RIP</h3>
+<ul>
+<li><p>RIP是一种基于距离向量的<strong>内部网关协议（IGP）</strong>，用于在小型到中型规模的网络中进行路由选择</p></li>
+<li><p>向量距离路由算法</p>
+<ul>
+<li><p>算法思想：</p></li>
+<li><p>周期性向相邻路由器告知本地路由器可以到达的网络，以及到达该网络的距离（跳数）</p></li>
+<li><p>路由向量（V，D）中，V-该路由器到达的目的网络地址；D-代表距离（跳数）</p></li>
+<li><p>按照最短路径原则，刷新路由表</p></li>
+</ul></li>
+</ul>
+<h3 id="ospf协议">OSPF协议</h3>
+<ul>
+<li><p>链路状态协议、也是内部网关协议（IGP）</p></li>
+<li><p>OSPF使用链路状态数据库来计算最短路径，并基于此选择最佳路由</p></li>
+<li><p>OSPF协议支持分层设计，适用于大型复杂网络，具有较快的收敛速度和更好的可扩展性</p></li>
+<li><p>OSPF通过交换链路状态信息来更新路由表，并使用不同的区域（Area）划分网络，以减少路由信息的传播范围</p></li>
+</ul>
+<h3 id="bgp协议">BGP协议</h3>
+<ul>
+<li><p>BGP是一种<strong>外部网关协议（EGP）</strong>，用于在互联网中实现<strong>自治系统（AS）</strong>之间的路由选择</p></li>
+<li><p>BGP是互联网中最常用的路由协议，用于<strong>交换不同自治系统之间</strong>的路由信息</p></li>
+<li><p>BGP协议具有高度的可扩展性和强大的策略控制能力，使得网络管理员可以精确地控制路由流量</p></li>
+<li><p>BGP协议使用<u>路径矢量</u>和<u>属性</u>来选择最佳路由，同时具备冗余路径和负载平衡的能力</p></li>
+</ul>
+<h2 id="六互联网控制报文协议icmpinternet-control-message-protocol">六、互联网控制报文协议ICMP（Internet Control Message Protocol）</h2>
+<h3 id="icmp的作用和特点">1. ICMP的作用和特点</h3>
+<ul>
+<li><p>不能独立于IP单独存在（<strong>IP辅助协议</strong>），解决IP不可靠问题</p></li>
+<li><p>要封装成IP分组（长度≤576B），再传送给数据链路层</p></li>
+<li><p>用于IP分组转发过程中<u>检测错误</u>，由路由器向源主机<u>报告差错原因</u></p></li>
+<li><p>不能纠正差错（只能报告）</p></li>
+<li><p>传输层（高层）要得到可靠传输，需要采用其他机制来保证</p></li>
+</ul>
+<h3 id="icmp报文类型和格式">2. ICMP报文类型和格式</h3>
+<p><img src="/img/ComputerNetwork/43.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="/img/ComputerNetwork/44.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>其他部分的32bits取决于ICMP报文的类型。</p>
+<h3 id="icmp差错报文">3. ICMP差错报文</h3>
+<ol type="1">
+<li><p>路由重定向报文</p></li>
+<li><p>超时报文</p></li>
+<li><p>参数出错报文</p></li>
+</ol>
+<h3 id="icmp查询报文">4. ICMP查询报文</h3>
+<ol type="1">
+<li><p>时间戳请求和应答</p></li>
+<li><p>回应请求和应答</p></li>
+<li><p>地址掩码请求与应答</p></li>
+<li><p>路由查询与通告</p></li>
+</ol>
+<h3 id="icmp报文的封装">5. ICMP报文的封装</h3>
+<ul>
+<li><p>ICMP报文作为IP分组数据转发（被封装在IP分组的数据段中）</p></li>
+<li><p>包含ICMP报文的IP分组头的协议类型字段值设为：1</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/45.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="七地址解析协议arpaddress-resolution-protocol">七、地址解析协议ARP（Address Resolution Protocol）</h2>
+<h3 id="ip地址与物理地址的映射">1. IP地址与物理地址的映射</h3>
+<ul>
+<li><p>IP逻辑地址：实现不同物理网设备（主机、路由器等）地址统一</p></li>
+<li><p>分组数据包最终在物理网络上传输（使用物理地址MAC）</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/46.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>地址映射方法：</p>
+<ul>
+<li><p>静态映射（人工维护地址映射表）不足：</p>
+<ul>
+<li><p>映射表不能及时反映网络设备变化（新添加了主机或路由器）</p></li>
+<li><p>IP地址不变情况下更换网卡，重新映射（设备物理地址变化）</p></li>
+<li><p>主机物理位置发生变化（IP地址变），但物理地址不变（IP变了）</p></li>
+</ul></li>
+<li><p>动态映射（ARP）</p></li>
+</ul>
+<h3 id="arp地址解析协议">2. ARP地址解析协议</h3>
+<ul>
+<li><p>正向地址解析协议（ARP）：从已知IP地址解析对应的物理地址（MAC）的映射关系过程，从<u>IP地址</u>到<u>物理地址</u></p></li>
+<li><p>反向地址解析（RARP）：从已知的物理地址解析对应的IP地址，从 <u>IP地址</u>到<u>物理地址</u></p></li>
+</ul>
+<h3 id="arp分组格式与封装">3. ARP分组格式与封装</h3>
+<p><img src="/img/ComputerNetwork/47.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ol type="1">
+<li><p>ARP分组中个字段意义</p>
+<ul>
+<li><p>硬件类型：16位，物理网络类型（1-以太网）</p></li>
+<li><p>协议类型：16位，网络协议类型（08000x-IPv4协议）</p></li>
+<li><p>硬件地址长度：8位，物理地址长度（6-以太网地址）</p></li>
+<li><p>协议地址长度：8位，网络层地址长度（4-IPv4协议）</p></li>
+<li><p>操作：16位，1-ARP请求分组；2-ARP应答分组</p></li>
+<li><p>源（目的）结点MAC地址：6B，以太网源（目的）结点物理地址</p></li>
+<li><p>源（目的）结点IP地址：4B，源（目的）结点IP地址</p></li>
+<li><p>补充数据段：18B，ARP分组长度达到46B（最小帧64B要求）</p></li>
+</ul></li>
+<li><p>ARP分组的封装</p></li>
+</ol>
+<p><img src="/img/ComputerNetwork/48.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="地址解析过程">4. 地址解析过程</h3>
+<ol type="1">
+<li>假设有两台设备，设备A和设备B，它们<strong>在同一个局域网内。</strong></li>
+<li>设备A想要发送数据给设备B，但它只知道设备B的IP地址，不知道设备B的MAC地址。</li>
+<li>设备A<strong>首先检查自己的ARP缓存</strong>，查看是否有设备B的IP地址对应的MAC地址。如果有，设备A可以直接使用该MAC地址进行通信。</li>
+<li>如果设备A的ARP缓存中没有设备B的MAC地址，设备A将发送一个<strong>ARP请求广播到局域网</strong>上的所有设备。</li>
+<li>ARP请求中<strong>包含了设备A的MAC地址和IP地址</strong>，以及设备A想要解析的目标<strong>设备B的IP地址</strong>。</li>
+<li>其他设备在收到ARP请求后，会检查请求中的目标IP地址是否与自己的IP地址匹配。</li>
+<li>设备B收到ARP请求后，发现目标IP地址与自己的IP地址匹配，于是<strong>设备B将发送一个ARP响应给设备A</strong>。</li>
+<li>ARP响应中<strong>包含了设备B的MAC地址</strong>，设备A收到ARP响应后，将设备B的IP地址与MAC地址关联，并将其存储在自己的ARP缓存中。</li>
+<li>现在设备A知道了设备B的MAC地址，可以使用该MAC地址发送数据包给设备B。</li>
+</ol>
+<p>注：<u>第三步中要使用本地ARP高速缓存</u></p>
+<h3 id="arp欺骗与防范">5. ARP欺骗与防范</h3>
+<ol type="1">
+<li><p>ARP协议的缺陷</p>
+<ul>
+<li><p>ARP高速缓存根据所接收的ARP协议包，随时进行动态更新</p></li>
+<li><p>ARP协议无需连接，任意主机在无ARP请求时，也可以做出应答</p></li>
+<li><p>ARP协议<strong>没有认证机制</strong>，只要接收的协议包有效，主机无条件根据协议包内容刷新本机ARP缓存，并不检查该协议包的合法性</p></li>
+</ul></li>
+<li><p>ARP欺骗过程</p></li>
+</ol>
+<p><img src="/img/ComputerNetwork/49.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>很好理解，就是欺骗者C可以截取A和B的通信内容，并加以篡改。</p>
+<ol start="3" type="1">
+<li><p>ARP欺骗的防范</p>
+<ul>
+<li><p>静态绑定（常用方法）：静态绑定IP和MAC，解决内网PC欺骗</p>
+<p>在网关做相同绑定（双重绑定）</p></li>
+<li><p>ARP防护软件：常用工具Antiarp（以一定频率广播正确ARP信息）</p></li>
+<li><p>使用具有ARP防护功能路由器</p></li>
+</ul></li>
+</ol>
 
                 
               </div>
