@@ -25,8 +25,15 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/50.jpg">
 <meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/51.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/52.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/53.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/54.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/55.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/56.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/57.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/58.jpg">
 <meta property="article:published_time" content="2023-06-27T08:26:02.000Z">
-<meta property="article:modified_time" content="2023-06-27T09:17:44.675Z">
+<meta property="article:modified_time" content="2023-06-27T09:45:33.866Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
@@ -250,7 +257,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k words
+          2.6k words
         
       </span>
     
@@ -261,7 +268,7 @@
         
         
         
-          11 mins
+          22 mins
         
       </span>
     
@@ -400,7 +407,126 @@
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="二局域网技术">二、局域网技术</h2>
+<h2 id="二局域网技术数据链路层协议">二、局域网技术＆数据链路层协议</h2>
+<ul>
+<li><p>局域网参考模型</p>
+<ul>
+<li><p>1980年2月，IEEE成立局域网标准委员会（简称IEEE802委员会）</p></li>
+<li><p>研究重点：解决局部范围内计算机组网问题</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/52.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>注意</strong>：不同局域网<u>必须</u>采用相同LLC协议；不同局域网<u>可以</u>采用不同MAC协议</p>
+<h3 id="以太网ethernet">1. 以太网Ethernet</h3>
+<ul>
+<li><p>数据传输特点</p></li>
+<li><p>载波侦听多路访问/冲突检测（CSMA/CD）技术</p>
+<ul>
+<li><p>载波侦听：监听总线占用</p></li>
+<li><p>多路访问：平等访问主线</p></li>
+<li><p>冲突检测：因为冲突不可避免</p></li>
+</ul></li>
+<li><p>以太网冲突检测方式</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/53.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>以太网帧结构</p>
+<ul>
+<li><p>前导符/帧前定界符：由10101010比特流组成</p></li>
+<li><p>目的地址、源地址：MAC地址（6字节）</p></li>
+<li><p>类型：网络层协议类型（0x800表示IP协议；0x8137表示IPX协议</p></li>
+<li><p>数据：46B~1500B（帧头长度为18B）</p></li>
+<li><p>帧校验：32位CRC校验（目的地址、源地址、类型、帧数据）</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/54.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>网卡物理地址存储器中存储单元对应实际地址称：物理地址</p></li>
+<li><p>共64位，由16进制表示</p></li>
+<li><p>以太网卡结构</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/55.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="现代以太网技术">2. 现代以太网技术</h3>
+<ul>
+<li><p>现代以太网技术：<strong>交换式局域网</strong></p></li>
+<li><p>交换技术应用于高性能局域网技术</p>
+<ul>
+<li><p>传统共享介质局域网（所有结点共享一条传输介质）不可避免发生冲突（结点数量不断增加，网络负荷加重，网络效率急剧下降）</p></li>
+<li><p>克服网络规模与网络性能矛盾，将共享介质改为交换方式，即二层交换技术</p></li>
+<li><p>二层交换技术不关心三层协议</p>
+<ul>
+<li><p>不会检查网络层，IPV4、IPV6等三层协议分组均可以穿越二层交换机</p></li>
+<li><p>网桥、交换机</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="网桥基本概念">3. 网桥基本概念</h3>
+<p>网桥的基本特征：</p>
+<ul>
+<li><p>互联两个不同数据链路层协议（不同传输介质、不同传输率）LLC不同</p></li>
+<li><p>以<strong>接收、存储、地址过滤与转发方式</strong>实现网络之间通信</p></li>
+<li><p>需要互联网络在<u>数据链路层以上采用相同协议</u></p></li>
+<li><p>分隔两个网络之间的广播通信量，改善互联网络性能与安全性</p></li>
+</ul>
+<p>网桥层次结构：</p>
+<p><img src="/img/ComputerNetwork/56.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>透明的网桥</p>
+<ul>
+<li><p>通过透明网桥，将多个局域网连接起来，硬件和软件不需要做任何变化</p></li>
+<li><p>透明网桥工作在混杂模式，接受所有的帧</p></li>
+<li><p>当一个帧到达网桥时，它必须做出丢弃还是转发的决策</p></li>
+<li><p>决策通过在网桥内部的地址表中，查找目的MAC地址而做出的</p></li>
+</ul>
+<p><img src="/img/ComputerNetwork/57.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p>网桥的转发原理：</p>
+<ul>
+<li><p>如果查到目的端口和源端口是相同，就会丢弃这一帧</p></li>
+<li><p>如果目的端口和源端口不同，就会转发这一帧</p></li>
+<li><p>如果这个目的地址没有在表里面查到，就会广播这一帧</p></li>
+</ul>
+<h3 id="交换机结构和工作原理">4. 交换机结构和工作原理</h3>
+<p><img src="/img/ComputerNetwork/58.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>泛洪广播</p>
+<ul>
+<li>目的地址未知，或广播地址，除源端口外在其他所有的端口进行转发</li>
+</ul></li>
+<li><p>转发</p>
+<ul>
+<li>对于已经学习到的目的地址，直接转发到相应窗口</li>
+</ul></li>
+<li><p>过滤</p>
+<ul>
+<li>目的地址和源地址所处端口号相同则丢弃</li>
+</ul></li>
+<li><p>逆向学习</p>
+<ul>
+<li>读取帧的源地址和达到端口号进行学习，从而补充转发更新表</li>
+</ul></li>
+</ul>
+<p>交换机的三种交换方式：</p>
+<ol type="1">
+<li><p>直接交换</p>
+<ul>
+<li><p>交换机只接收数据帧头部，检测目的地址，立即转发（无论帧是否出错）</p></li>
+<li><p>帧出错检测由结点主机完成（延迟小，缺乏差错检测）</p></li>
+</ul></li>
+<li><p>存储转发交换</p>
+<ul>
+<li><p>交换机完整地接收数据帧，并检测差错。若帧正确，则根据帧目的地址确定输出端口，进行转发出</p></li>
+<li><p>具有帧差错检测能力，但延迟大</p></li>
+</ul></li>
+<li><p>改进的直接交换</p>
+<ul>
+<li><p>检查帧的长度是否够64个字节，如果小于64字节则丢弃（碎片帧）；如果大于64字节，则转发</p></li>
+<li><p>不提供差错检测，但是出错的机会比直接转发小，数据处理速度比存储转发方式快</p></li>
+</ul></li>
+</ol>
+<h3 id="虚拟局域网技术vlan">5. 虚拟局域网技术VLAN</h3>
+<ul>
+<li><p>一种网络服务（不是组网技术）</p></li>
+<li><p>交换式局域网技术是实现VLAN的基础（用户和局域网资源的逻辑组合）。<u>虚拟局域网内的主机可能物理上并不处于同一个交换机</u></p></li>
+</ul>
 
                 
               </div>
