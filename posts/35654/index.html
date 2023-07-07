@@ -16,19 +16,23 @@
   <meta name="author" content="Hidden Blue">
   <meta name="keywords" content="">
   
-    <meta name="description" content="物理层好像不用考，回头再补了">
+    <meta name="description" content="物理层期末不考">
 <meta property="og:type" content="article">
 <meta property="og:title" content="6.物理层协议">
 <meta property="og:url" content="https://steve-1936550490.github.io/posts/35654/index.html">
 <meta property="og:site_name" content="深藏BLUE的博客">
-<meta property="og:description" content="物理层好像不用考，回头再补了">
+<meta property="og:description" content="物理层期末不考">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/59.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/60.jpg">
+<meta property="og:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/61.jpg">
 <meta property="article:published_time" content="2023-06-28T12:08:24.000Z">
-<meta property="article:modified_time" content="2023-06-28T12:41:08.092Z">
+<meta property="article:modified_time" content="2023-07-07T03:58:03.892Z">
 <meta property="article:author" content="Hidden Blue">
 <meta property="article:tag" content="期末">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://steve-1936550490.github.io/img/ComputerNetwork/59.jpg">
   
   
   
@@ -247,7 +251,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          1.4k words
         
       </span>
     
@@ -258,7 +262,7 @@
         
         
         
-          1 mins
+          13 mins
         
       </span>
     
@@ -301,7 +305,127 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="一物理层的主要功能">一、物理层的主要功能</h2>
+<h3 id="物理层提供的服务">物理层提供的服务：</h3>
+<ul>
+<li><p>处于网络体系结构中的最底层，向数据链路层提供<strong>比特流</strong>传输服务</p></li>
+<li><p>数据链路层通过物理层接口传送比特流数据</p></li>
+<li><p>将比特流进行编码，信号通过传输介质传输给下一个结点物理层</p></li>
+</ul>
+<h3 id="物理层主要功能">物理层主要功能：</h3>
+<ul>
+<li><p>物理连接的建立、维护和释放</p></li>
+<li><p>比特流传输</p></li>
+</ul>
+<h3 id="接口特性">接口特性</h3>
+<ul>
+<li><p>机械特性：指明物理接口的形状、尺寸、引脚数、排列等等</p></li>
+<li><p>电子特性：指明物理层接口电缆的各条线上出现的电压的范围</p></li>
+<li><p>功能特性：指明某条线上出现的某一电平的电压表表示种意义</p></li>
+<li><p>规范特性：指明对于不同功能的各种可能事件的出现顺序</p>
+<p>点-点通信线路物理层协议：</p>
+<ul>
+<li><p>EIA-232-C标准规定了计算机串行通信接口与调制解调器之间物理接口（机械、电气、功能、规程）具体参数与工作流程</p></li>
+<li><p>家庭接入通过ADSL物理层协议（上行/下行传输速率标准、传输信号编码格式、电平、同步方式、连接接口等内容）</p></li>
+<li><p>线缆调制解调器（有线电视线缆接入）物理层标准有：“线缆数据业务接口规范DOCSIS”、IEEE802.14物理层标准</p></li>
+</ul>
+<p>广播通信线路物理层协议：</p>
+<ul>
+<li><p>广播通信线路：有线、无线</p></li>
+<li><p>有线传输介质（以太网802.3协议）包括多个物理层协议</p></li>
+<li><p>无线局域网（IEEE802.11）物理层标准：跳频扩频、直接序列扩频</p></li>
+<li><p>无线个人区域网（IEEE802.15.4）物理层标准：无 线信道频段、调制方式、信号编码方式、发射与接收功率、同步方式</p></li>
+</ul></li>
+</ul>
+<h3 id="数据传输-信号">数据传输-信号</h3>
+<ul>
+<li><p>信号：数据的电气or电磁实现</p></li>
+<li><p>分类：<u>模拟信号、数字信号</u></p>
+<ul>
+<li><p>通信系统数据：模拟数据（具有连续变化值，如音频数据）、数字数据（离散值，如0、1比特数）</p></li>
+<li><p>电信：模拟信号（电平幅度连续变化）、数字信号（离散信号，比特0、1表示不同电平信号）</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/59.jpg" srcset="/img/loading.gif" lazyload /></p>
+<ul>
+<li><p>基带传输</p>
+<ul>
+<li><p>通过数字信道直接传输数字信号</p></li>
+<li><p>信号的传输占据传输截至从零到最大值之间的全部频率</p></li>
+<li><p>有线传输介质的常用方法，如以太网IEEE 802.3</p></li>
+</ul></li>
+<li><p>频带传输</p>
+<ul>
+<li><p>用调制解调器调节信号的振幅、相位或者频率来传输比特（模拟信号）</p></li>
+<li><p>信号占据了以载波信号频率为中心的一段频带</p></li>
+<li><p>无线传输介质的常用方法，如无线局域网IEEE 802.11</p></li>
+</ul></li>
+</ul>
+<h3 id="数据编码技术">数据编码技术</h3>
+<p><img src="/img/ComputerNetwork/60.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="数字信号数据编码">数字信号数据编码</h3>
+<ul>
+<li><p>非归零码</p></li>
+<li><p>曼彻斯特编码</p></li>
+<li><p>差分曼彻斯特编码</p></li>
+</ul>
+<h3 id="模拟信号数据编码">模拟信号数据编码</h3>
+<ul>
+<li><p>移辐键控ASK</p></li>
+<li><p>移频键控FSK</p></li>
+<li><p>移相键控PSK</p>
+<ul>
+<li><p>绝对调相</p></li>
+<li><p>相对调相</p></li>
+</ul></li>
+</ul>
+<p><img src="/img/ComputerNetwork/61.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="脉冲编码调制">脉冲编码调制</h3>
+<ul>
+<li><p>模拟信号数字化，e.g 语音、图像数字化</p></li>
+<li><p>采样、量化、编码</p>
+<p>采样：每隔一段时间，取模拟信号电平</p>
+<ul>
+<li>采样率：f  =  1/T ≥ 2B (B：信道带宽)</li>
+</ul></li>
+</ul>
+<h3 id="小结">小结</h3>
+<ul>
+<li><p>物理处于网络体系结构的最底层，向数据链路层提供<strong>比特流</strong>传输服务</p></li>
+<li><p>物理层主要功能：</p>
+<ul>
+<li><p>物理连接的建立、维护和释放</p></li>
+<li><p>比特流传输</p></li>
+</ul></li>
+<li><p>物理层上的数据是以信号的方式传输的</p>
+<ul>
+<li><p>数字信号：非归零码为代码，以曼彻斯特编码，差分曼彻斯特编码</p></li>
+<li><p>模拟信号：移幅键控ASK、移频键控FSK和移相键控PSK</p></li>
+<li><p>模拟信号转数字信号：脉冲编码调制</p></li>
+</ul></li>
+</ul>
+<h3 id="数据传输速率的定义">数据传输速率的定义</h3>
+<ul>
+<li><p>数据传输速率：S=1/T（T发送每个比特所需时间），网络系统的重要性能指标</p>
+<ul>
+<li>每秒传输数据代码比特数（bit/s,bps）</li>
+</ul></li>
+<li><p>注意几个点：</p>
+<ul>
+<li><p>指节点向传输介质发送数据速率，即为发送速率</p></li>
+<li><p>计算速率<strong>使用十进制</strong>，1kbps = 1000bps ≠ 1024bps（存储计算用的二进制）</p></li>
+<li><p>比特率B（波特）：用于模拟信号传输（每秒载波调制变化数，1/s）</p></li>
+<li><p>数据传输速率S（bps）、波特率（baud）的关系</p></li>
+</ul></li>
+</ul>
+<h3 id="信道带宽和香农定理">信道带宽和香农定理</h3>
+<ul>
+<li><p>香农定理：在有随机热噪声信道中传输数据信号，传输速率为Rmax为：</p>
+<p>R<sub>max</sub>=B·log<sub>2</sub>(1+S/N)（bps）</p></li>
+<li><p>B:信道带宽（Hz）、S/N：信噪比</p></li>
+<li><p>香农定理给出有限带宽，有热噪声信道的最大传输速率的极限</p></li>
+<li><p>说明最大传输速率和带宽之间存在明确关系，可以用“带宽”表示”传输速率“</p></li>
+</ul>
 
                 
               </div>
